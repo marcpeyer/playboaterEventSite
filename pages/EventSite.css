@@ -1,0 +1,328 @@
+A
+{
+	FONT-WEIGHT: normal;
+	COLOR: #0000ff;
+	TEXT-DECORATION: underline;
+}
+A:visited
+{
+	FONT-WEIGHT: normal;
+	COLOR: #0000ff;
+	TEXT-DECORATION: underline;
+}
+A:active
+{
+	FONT-WEIGHT: normal;
+	COLOR: #0000ff;
+	TEXT-DECORATION: underline;
+}
+A:hover
+{
+	FONT-WEIGHT: normal;
+	COLOR: #000066;
+	TEXT-DECORATION: underline;
+}
+h1
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+}
+h2
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 16px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+}
+h3
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+}
+h5
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 14px;
+	FONT-WEIGHT: normal;
+	COLOR: #000000;
+}
+h6
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 10px;
+	FONT-WEIGHT: normal;
+	COLOR: #000000;
+}
+body
+{
+	/*background-image:url(../images/hintergr.jpg);*/
+	background-attachment:fixed;
+	background-color: #dadada;
+	margin:10px;
+	scrollbar-base-color: #ffffff;
+	scrollbar-3dlight-color: #AAAAAA;
+	scrollbar-arrow-color: #BBBBBB;
+	scrollbar-darkshadow-color: #444444;
+	scrollbar-face-color: #FFffff;
+	scrollbar-highlight-color: #fffffFF;
+	scrollbar-shadow-color: #dddddd;
+	scrollbar-track-color: #ffffff;
+	COLOR: #000000;
+	font-family: Arial;
+	font-size: 14px;
+}
+TD
+{
+	white-space: nowrap;
+	font-size: 14px;
+}
+.font
+{
+	font-family: Lucida Console, Verdana, Arial;
+}
+.text
+{
+	font-family: Century Gothic, Book Antiqua, Arial;
+}
+.smalltext
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 12px;
+	FONT-WEIGHT: normal;
+	COLOR: #000000;
+}
+.title
+{
+	font-family: Lucida Console, Verdana, Arial;
+	FONT-SIZE: 23px;
+	FONT-WEIGHT: bold;
+	COLOR: #800080;
+}
+.home_link
+{
+	font-family: Lucida Console, Verdana, Arial;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #ff0000;
+	TEXT-DECORATION: none;
+}
+.home_link:visited
+{
+	font-family: Lucida Console, Verdana, Arial;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #ff0000;
+	TEXT-DECORATION: none;
+}
+.home_link:hover
+{
+	font-family: Lucida Console, Verdana, Arial;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+}
+.home_link:focus
+{
+	font-family: Lucida Console, Verdana, Arial;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+}
+.home_link:active
+{
+	font-family: Lucida Console, Verdana, Arial;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+	TEXT-DECORATION: underline;
+}
+
+.choiceMenuLink
+{
+	font-family: Verdana, Arial;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+.choiceMenuLink:visited
+{
+	font-family: Verdana, Arial;
+	FONT-SIZE: 12px;
+	COLOR: #000000;
+	TEXT-DECORATION: none;
+}
+.choiceMenuLink:hover
+{
+	font-family: Verdana, Arial;
+	FONT-SIZE: 12px;
+	COLOR: #0000ff;
+	TEXT-DECORATION: none;
+}
+.choiceMenuLink:focus
+{
+	font-family: Verdana, Arial;
+	FONT-SIZE: 12px;
+	COLOR: #0000ff;
+	TEXT-DECORATION: none;
+}
+.choiceMenuLink:active
+{
+	font-family: Verdana, Arial;
+	FONT-SIZE: 12px;
+	COLOR: #0000ff;
+	TEXT-DECORATION: none;
+}
+
+.header
+{
+	FONT-FAMILY: Verdana, Arial, Helvetica;
+	FONT-SIZE: 20px;
+	FONT-WEIGHT: bold;
+	COLOR: #000000;
+	TEXT-ALIGN: center;
+}
+.error-message
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 15px;
+	color: #ff0000;
+}
+.dragableBox
+{
+	background-color: #D6D3CE;
+	border-style: outset;
+	border-width: 2px;
+	PADDING: 8px;
+	POSITION: absolute;
+	cursor: move;
+}
+TABLE > TBODY > TR > TD > DIV.smsBox
+{
+	border-color: #424142;
+}
+.dragableBox A
+{
+	 cursor: pointer;
+}
+.smsBox
+{
+	Width: 240px;
+	PADDING-BOTTOM: 1px;
+}
+.smsBox TEXTAREA
+{
+	WIDTH: 218px;
+	HEIGHT: 112px;
+}
+.smsBox TABLE
+{
+	Width: 100%;
+}
+.smsBox TD
+{
+	font-size: 11px;
+}
+.popupBox
+{
+	Width: 240px;
+	PADDING-BOTTOM: 1px;
+}
+.popupBox.DIV,.popupBox.TABLE
+{
+	Width: 100%;
+	background-color: red;
+}
+.MyDetailsCategSetLbl
+{
+	display: block;
+	width: 200px;
+	border: 1px solid red;
+	float: left;
+}
+.MyDetailsCategSetBox
+{
+	MARGIN-TOP: 10px;
+	width: 100%;
+	background-color: #eeeeee;
+}
+
+.MyDetailsCategBoxHeader
+{
+	border-top: 1px solid black;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	padding: 3px;
+}
+
+.MyDetailsCategSetItemStyle
+{
+	white-space: normal;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	padding: 3px;
+}
+
+.MyDetailsCategBoxFooter
+{
+	background-color: #dadada;
+	border-top: 1px solid black;
+}
+
+.hidden
+{
+	display: none;
+}
+
+.ControlButton
+{
+	/*border: 1px solid blue;*/
+	margin-right: 5px;
+	cursor: pointer;
+}
+
+.FeatureBox TD
+{
+	white-space: normal;
+}
+
+#notifSubscription
+{
+	BORDER: 1px solid black;
+	PADDING: 3px;
+	MARGIN-TOP: 5px;
+	WHITE-SPACE: nowrap;
+	BACKGROUND-COLOR: #eeeeee;
+	FONT-SIZE: X-Small;
+}
+
+#pnlEventDetails
+{
+	BORDER: red 0px solid;
+}
+
+#eventDetails
+{
+}
+
+#eventDetailsCell
+{
+	PADDING: 3px;
+	BORDER: black 1px solid;
+	BACKGROUND-COLOR: #eeeeee;
+}
+
+#eventDetailsTable
+{
+}
+
+.labelDescription
+{
+	color:#333333;
+	font-size:11px;
+}

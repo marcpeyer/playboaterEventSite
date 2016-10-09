@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RiverLevelConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--	<BuwalXMLSource>http://localhost/kcm.ch/TrainingSite/SMS.xml</BuwalXMLSource>-->
+	<BuwalXMLSource>http://www.bwg.admin.ch/lhg/SMS.xml</BuwalXMLSource>
+	<AproxBremg2hLaterSupplement>1.50</AproxBremg2hLaterSupplement>
+	<AproxBremg4hLaterSupplement>7.40</AproxBremg4hLaterSupplement>
+
+	<Show7DayPdfLink>true</Show7DayPdfLink>
+	<Show40DayPdfLink>true</Show40DayPdfLink>
+	<ShowBuwalStationLink>true</ShowBuwalStationLink>
+	
+	<Stations>
+		<Station>
+			<!-- Murg - Murgenthal -->
+			<StationId>2471</StationId>
+		</Station>
+		<Station>
+			<!-- Aare - Murgenthal -->
+			<StationId>2063</StationId> 
+		</Station>
+		<Station>
+			<!-- Inn - Tarasp -->
+			<StationId>2265</StationId> 
+		</Station>
+		<Station>
+			<!-- Kleine Emme - Littau -->
+			<StationId>2425</StationId> 
+		</Station>
+		<Station>
+			<!-- Reuss - Luzern -->
+			<StationId>2152</StationId> 
+		</Station>
+		<Station>
+			<!-- Reuss - Muehlau -->
+			<StationId>2110</StationId> 
+		</Station>
+		<Station>
+			<!-- Reuss - Mellingen -->
+			<StationId>2018</StationId> 
+		</Station>
+		<Station>
+			<!-- Kander - Hondrich -->
+			<StationId>2469</StationId>
+		</Station>
+	</Stations>
+</RiverLevelConfiguration>
