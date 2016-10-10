@@ -1,5 +1,14 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{DA713C4C-FFA6-485D-AC98-887B3D79A348}"
+	ProjectSection(SolutionItems) = preProject
+		deploy\roles.sql = deploy\roles.sql
+		deploy\schema.sql = deploy\schema.sql
+		deploy\stored procs.sql = deploy\stored procs.sql
+	EndProjectSection
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteDataAccessLayer", "EventSiteDataAccessLayer\EventSiteDataAccessLayer.csproj", "{6B1113E7-1AD6-493A-96B0-93E7F2264B52}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteAPI", "EventSiteAPI\EventSiteAPI.csproj", "{C9F7AEC6-E330-46DF-9459-5DE82FA22F2A}"
@@ -13,15 +22,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteRemoting", "EventSiteRemoting\EventSiteRemoting.csproj", "{87981B85-A5BF-4012-A2C9-D9AC6BC7F305}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteNotifications", "EventSiteNotifications\EventSiteNotifications.csproj", "{B208F673-5B98-4699-9303-676B7E4503EF}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{DA713C4C-FFA6-485D-AC98-887B3D79A348}"
-	ProjectSection(SolutionItems) = preProject
-		deploy\roles.sql = deploy\roles.sql
-		deploy\schema.sql = deploy\schema.sql
-		deploy\stored procs.sql = deploy\stored procs.sql
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsApp", "TestConsApp\TestConsApp.csproj", "{3307CAA3-A299-4025-9E54-A481C5F07B25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,10 +57,6 @@ Global
 		{B208F673-5B98-4699-9303-676B7E4503EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B208F673-5B98-4699-9303-676B7E4503EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B208F673-5B98-4699-9303-676B7E4503EF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3307CAA3-A299-4025-9E54-A481C5F07B25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3307CAA3-A299-4025-9E54-A481C5F07B25}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3307CAA3-A299-4025-9E54-A481C5F07B25}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3307CAA3-A299-4025-9E54-A481C5F07B25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
