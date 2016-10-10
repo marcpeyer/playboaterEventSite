@@ -28,6 +28,10 @@ namespace kcm.ch.EventSite.Common
 
 		public static readonly string EventSiteConfigurationFolder =
 			String.Format(@"{0}\playboater.EventSite\{1}.{2}.{3}",
+				//todo: here change it to not use CommonApplicationData
+				//try: System.Web.Hosting.HostingEnvironment.MapPath("~")
+				//or: string appPath = System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath;
+
 			              Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
 			              Assembly.GetExecutingAssembly().GetName().Version.Major,
 			              Assembly.GetExecutingAssembly().GetName().Version.Minor,
