@@ -96,10 +96,6 @@
       <Name>Ajax</Name>
       <HintPath>lib\Ajax.dll</HintPath>
     </Reference>
-    <Reference Include="EventSiteAPI">
-      <Name>EventSiteAPI</Name>
-      <HintPath>EventSiteAPI\bin\Release\EventSiteAPI.dll</HintPath>
-    </Reference>
     <Reference Include="NLog">
       <Name>NLog</Name>
       <HintPath>lib\NLog.dll</HintPath>
@@ -128,6 +124,10 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <ProjectReference Include="EventSiteAPI\EventSiteAPI.csproj">
+      <Project>{c9f7aec6-e330-46df-9459-5de82fa22f2a}</Project>
+      <Name>EventSiteAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="EventSiteBusinessLayer\EventSiteBusinessLayer.csproj">
       <Name>EventSiteBusinessLayer</Name>
       <Project>{D4442FFB-77FB-441D-95DE-064D44D28B80}</Project>
@@ -202,7 +202,9 @@
     <Content Include="MaintenanceMode.aspx">
       <SubType>Form</SubType>
     </Content>
-    <Content Include="modules\AJAXDatePickerControl.ascx" />
+    <Content Include="modules\AJAXDatePickerControl.ascx">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Content Include="modules\ContactControl.ascx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
@@ -220,7 +222,7 @@
     <Content Include="pages\EventSite.css" />
     <Content Include="pages\EventSiteCommons.js" />
     <Content Include="Register.aspx">
-      <SubType>Form</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="RemoteLogin.aspx">
       <SubType>Form</SubType>
