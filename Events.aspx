@@ -1,6 +1,6 @@
 <%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <%@ Register TagPrefix="dpick" TagName="AJAXDatePickerControl" Src="modules/AJAXDatePickerControl.ascx" %>
-<%@ Page language="c#" Codebehind="Events.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Events" validateRequest="false" clientTarget="ie5"%>
+<%@ Page language="c#" Codebehind="Events.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Events" validateRequest="false"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>
