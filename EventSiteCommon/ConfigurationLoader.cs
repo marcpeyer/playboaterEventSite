@@ -25,13 +25,12 @@ namespace kcm.ch.EventSite.Common
 
 		private static readonly Dictionary<string, CacheItem> cache = new Dictionary<string, CacheItem>();
 
-
 		public static readonly string EventSiteConfigurationFolder =
-			String.Format(@"{0}\playboater.EventSite\{1}.{2}.{3}",
-			              Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
-			              Assembly.GetExecutingAssembly().GetName().Version.Major,
-			              Assembly.GetExecutingAssembly().GetName().Version.Minor,
-			              Assembly.GetExecutingAssembly().GetName().Version.Build);
+			String.Format(@"{0}\..\conf\playboater.EventSite\{1}.{2}.{3}",
+				System.Web.Hosting.HostingEnvironment.ApplicationPhysicalPath,
+				Assembly.GetExecutingAssembly().GetName().Version.Major,
+				Assembly.GetExecutingAssembly().GetName().Version.Minor,
+				Assembly.GetExecutingAssembly().GetName().Version.Build);
 
 		public static object Load(string fileName, Type configType, out bool modified)
 		{
