@@ -78,7 +78,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ajax">
-      <Name>Ajax</Name>
       <HintPath>..\lib\Ajax.dll</HintPath>
     </Reference>
     <Reference Include="NLog">

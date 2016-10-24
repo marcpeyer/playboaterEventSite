@@ -93,7 +93,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ajax">
-      <Name>Ajax</Name>
       <HintPath>lib\Ajax.dll</HintPath>
     </Reference>
     <Reference Include="NLog">
@@ -161,7 +160,7 @@
     <Content Include="Global.asax">
     </Content>
     <Content Include="Help.aspx">
-      <SubType>Form</SubType>
+      <SubType>ASPXCodeBehind</SubType>
     </Content>
     <Content Include="images\datepicker\cal_background.jpg" />
     <Content Include="images\datepicker\close_button.gif" />

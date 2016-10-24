@@ -2,6 +2,8 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using NLog;
 using NLog.Config;
+using System.Xml;
+using System.IO;
 
 namespace kcm.ch.EventSite.Common
 {
@@ -36,7 +38,8 @@ namespace kcm.ch.EventSite.Common
 
 		private static XmlLoggingConfiguration GetXmlConfiguration()
 		{
-			return new XmlLoggingConfiguration(EventSiteConfiguration.Current.LoggingConfiguration, null);
+			StringReader reader = new StringReader(EventSiteConfiguration.Current.LoggingConfiguration.OuterXml);
+			return new XmlLoggingConfiguration(XmlReader.Create(reader), null);
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]

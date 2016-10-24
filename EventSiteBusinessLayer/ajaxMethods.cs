@@ -9,6 +9,7 @@
 // this comment. Thanks and happy coding.
 //-------------------------------------------------------------------------------
 
+using Ajax;
 using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
@@ -20,7 +21,7 @@ namespace AJAXDatePicker
     /// </summary>
     public class ajaxMethods
     {
-        [Ajax.AjaxMethod]
+        [AjaxMethod]
         public Dates GetNextMonthPeriods(string CurrDate)
         {
             DateTime NextMonth = DateTime.Parse(CurrDate, new CultureInfo("en-US").DateTimeFormat).AddMonths(1);
@@ -29,7 +30,7 @@ namespace AJAXDatePicker
             return GetMonth(FromDate, ToDate);
         }
 
-        [Ajax.AjaxMethod]
+        [AjaxMethod]
         public Dates GetPrevMonthPeriods(string CurrDate)
         {
             DateTime PrevMonth = DateTime.Parse(CurrDate, new CultureInfo("en-US").DateTimeFormat).AddMonths(-1);
@@ -38,7 +39,7 @@ namespace AJAXDatePicker
             return GetMonth(FromDate, ToDate);
         }
 
-        [Ajax.AjaxMethod]
+        [AjaxMethod]
         public Dates GetThisMonthPeriod(string CurrDate)
         {
             DateTime ThisMonth = DateTime.Parse(CurrDate, new CultureInfo("en-US").DateTimeFormat).AddMonths(0);
@@ -47,7 +48,7 @@ namespace AJAXDatePicker
             return GetMonth(FromDate, ToDate);
         }
 
-        [Ajax.AjaxMethod]
+        [AjaxMethod]
         public bool IsClickableDate(string CurrDate)
         {
 			CurrDate = CurrDate.Trim();
@@ -83,7 +84,7 @@ namespace AJAXDatePicker
 //            return false; //return false if cannot find any dates
         }
 
-		[Ajax.AjaxMethod]
+		[AjaxMethod]
 		public bool IsValidTime(string time)
 		{
 			time = time.Trim();
