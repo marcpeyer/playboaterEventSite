@@ -21,12 +21,14 @@ namespace kcm.ch.EventSite.Web
 		protected System.Web.UI.WebControls.CheckBox EventMgmtSmsOn;
 		protected System.Web.UI.HtmlControls.HtmlTableRow LiftMgmtRow;
 		protected System.Web.UI.HtmlControls.HtmlTableRow EventMgmtRow;
-		protected System.Web.UI.HtmlControls.HtmlGenericControl SendPassLink;
+		protected System.Web.UI.HtmlControls.HtmlGenericControl SendPassContainer;
+		protected System.Web.UI.WebControls.HyperLink SendPassLink;
 
 		private void Page_Load(object sender, System.EventArgs e)
 		{
 			// Put user code to initialize the page here
 			LoginLink.NavigateUrl = "Login.aspx?mid=" + BLL.Mandator.MandatorId;
+			SendPassLink.NavigateUrl = "SendPass.aspx?mid=" + BLL.Mandator.MandatorId;
 		}
 
 		#region Web Form Designer generated code
@@ -82,7 +84,7 @@ namespace kcm.ch.EventSite.Web
 		{
 			LiftMgmtRow.Visible = BLL.Mandator.IsLiftManagementEnabled;
 			EventMgmtRow.Visible = BLL.Mandator.SmsNotifications;
-			SendPassLink.Visible = !BLL.Mandator.UseExternalAuth;
+			SendPassContainer.Visible = !BLL.Mandator.UseExternalAuth;
 		}
 	}
 }

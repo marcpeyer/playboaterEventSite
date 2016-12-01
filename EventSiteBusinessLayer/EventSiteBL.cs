@@ -495,8 +495,10 @@ Mandant: {2}
 																? new EmailMessage(smtpServer, smtpUseSSL, smtpPort, smtpUser, smtpPass)
 																: new EmailMessage(smtpServer));
 
-				mailObj.SendMail(sender.Email == null ? mandator.MandatorName : sender.Name,
-												 sender.Email ?? mandator.MandatorMail, recipient.Email, mailSubject,
+				string mailSubject = "Passwort für EventSite";
+				string mailBody = String.Format(@"<p>Die Login-Daten für die EventSite (Mandant '{0}') wurden angefordert.</p>
+<p>Login: <b>{1}</b><br>Passwort: <b>{2}</b></p>", contact.Mandator.MandatorName, contact.Login, password);
+				mailObj.SendMail(contact.Mandator.MandatorMail, contact.Email, mailSubject,
 												 mailBody, EmailMessage.EmailMessageFormat.Html);
 			}
 			catch(Exception ex)
