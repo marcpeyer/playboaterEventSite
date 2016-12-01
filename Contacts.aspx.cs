@@ -156,7 +156,7 @@ namespace kcm.ch.EventSite.Web
 				try
 				{
 					//create contact
-					newContact = new Contact(BLL.Mandator, newName, newMail, newMobile, false, false, false, 0, 0, false);
+					newContact = new Contact(BLL.Mandator, newName, newMail, newMobile, false, false, false, 0, 0, false, "");
 				}
 				catch (EventSiteException ex)
 				{

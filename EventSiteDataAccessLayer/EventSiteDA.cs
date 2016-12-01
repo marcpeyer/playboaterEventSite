@@ -219,7 +219,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 							pbHelpers.GetInt32(data, "SmsLog"),
 							pbHelpers.GetInt32(data, "SmsPurchased"),
 							pbHelpers.GetBool(data, "IsDeleted"),
-							pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+							pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+							pbHelpers.GetString(data, "Login"));
 					}
 					catch(Exception e)
 					{
@@ -317,7 +318,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 							pbHelpers.GetInt32(data, "SmsLog"),
 							pbHelpers.GetInt32(data, "SmsPurchased"),
 							pbHelpers.GetBool(data, "IsDeleted"),
-							pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+							pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+							pbHelpers.GetString(data, "Login"));
 					}
 					catch(Exception e)
 					{
@@ -459,7 +461,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 				}
 
 				data.Close();
@@ -519,7 +522,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 				}
 
 				data.Close();
@@ -630,7 +634,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 				}
 
 				data.Close();
@@ -796,7 +801,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 
 					contacts.Add(contact);
 				}

@@ -63,7 +63,7 @@ namespace kcm.ch.EventSite.Web
 
 				try
 				{
-					Contact c = new Contact(BLL.Mandator, Name.Text, Email.Text, MobilePhone.Text, LiftMgmtSmsOn.Checked, EventMgmtSmsOn.Checked, false, 0, 0, false);
+					Contact c = new Contact(BLL.Mandator, Name.Text, Email.Text, MobilePhone.Text, LiftMgmtSmsOn.Checked, EventMgmtSmsOn.Checked, false, 0, 0, false, "");
 
 					string userInfo = BLL.AddContact(c);
 					if(userInfo != null)

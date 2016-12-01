@@ -479,24 +479,31 @@ Mandant: {2}
 
 		public bool SendPassword(Contact contact)
 		{
-			string password = EventSiteDA.GetPassword(contact.ContactId);
+			try
+			{
+				string password = EventSiteDA.GetPassword(contact.ContactId);
 
-			bool smtpUseSSL = EventSiteConfiguration.Current.MailConfiguration.UseSSL;
-			string smtpServer = EventSiteConfiguration.Current.MailConfiguration.SmtpServer;
-			int smtpPort = EventSiteConfiguration.Current.MailConfiguration.SmtpPort;
-			string smtpUser = EventSiteConfiguration.Current.MailConfiguration.SmtpUser;
-			string smtpPass = EventSiteConfiguration.Current.MailConfiguration.SmtpPass;
-			bool sendSmsOn = EventSiteConfiguration.Current.NotificationConfiguration.SendSmsOn;
-			bool offlineMode = EventSiteConfiguration.Current.OfflineMode;
+				bool smtpUseSSL = EventSiteConfiguration.Current.MailConfiguration.UseSSL;
+				string smtpServer = EventSiteConfiguration.Current.MailConfiguration.SmtpServer;
+				int smtpPort = EventSiteConfiguration.Current.MailConfiguration.SmtpPort;
+				string smtpUser = EventSiteConfiguration.Current.MailConfiguration.SmtpUser;
+				string smtpPass = EventSiteConfiguration.Current.MailConfiguration.SmtpPass;
+				bool sendSmsOn = EventSiteConfiguration.Current.NotificationConfiguration.SendSmsOn;
+				bool offlineMode = EventSiteConfiguration.Current.OfflineMode;
 
-			EmailMessage mailObj = (!String.IsNullOrEmpty(smtpPass)
-															? new EmailMessage(smtpServer, smtpUseSSL, smtpPort, smtpUser, smtpPass)
-															: new EmailMessage(smtpServer));
+				EmailMessage mailObj = (!String.IsNullOrEmpty(smtpPass)
+																? new EmailMessage(smtpServer, smtpUseSSL, smtpPort, smtpUser, smtpPass)
+																: new EmailMessage(smtpServer));
 
-			mailObj.SendMail(sender.Email == null ? mandator.MandatorName : sender.Name,
-											 sender.Email ?? mandator.MandatorMail, recipient.Email, mailSubject,
-											 mailBody, EmailMessage.EmailMessageFormat.Html);
-
+				mailObj.SendMail(sender.Email == null ? mandator.MandatorName : sender.Name,
+												 sender.Email ?? mandator.MandatorMail, recipient.Email, mailSubject,
+												 mailBody, EmailMessage.EmailMessageFormat.Html);
+			}
+			catch(Exception ex)
+			{
+				LoggerManager.GetLogger().ErrorException("Error while sending password email.", ex);
+				return false;
+			}
 			return true;
 		}
 

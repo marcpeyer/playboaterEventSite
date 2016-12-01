@@ -303,7 +303,8 @@ namespace kcm.ch.EventSite.Web
 					false,
 					0,
 					0,
-					false);
+					false,
+					String.Empty);
 
 				//save new contact to db
 				string userInfoText;

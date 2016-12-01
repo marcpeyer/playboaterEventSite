@@ -56,13 +56,10 @@ namespace kcm.ch.EventSite.Web
 				try
 				{
 					Contact c = BLL.GetContact(Email.Text.Trim());
-					c.
+					bool isSuccess = BLL.SendPassword(c);
+					string userInfo = isSuccess ? "Email erfolgreich gesendet" : "Fehler beim senden des Passworts!";
 
-					string userInfo = BLL.AddContact(c);
-					if(userInfo != null)
-					{
-						RegisterStartupScriptIfNeeded("userInfo", string.Format(pbHelpers.JavaScriptAlertString, userInfo));
-					}
+					RegisterStartupScriptIfNeeded("userInfo", string.Format(pbHelpers.JavaScriptAlertString, userInfo));
 				}
 				catch(EventSiteException ex)
 				{
