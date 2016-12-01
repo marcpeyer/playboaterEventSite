@@ -7,21 +7,13 @@ namespace kcm.ch.EventSite.Web
 	/// <summary>
 	/// Summary description for Register.
 	/// </summary>
-	public class Register : PageBase
+	public class SendPass : PageBase
 	{
-		protected System.Web.UI.WebControls.TextBox Name;
 		protected System.Web.UI.WebControls.TextBox Email;
-		protected System.Web.UI.WebControls.TextBox MobilePhone;
 		protected System.Web.UI.HtmlControls.HtmlGenericControl pageTitle;
-		protected System.Web.UI.WebControls.Button RegisterButton;
-		protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+		protected System.Web.UI.WebControls.Button SendButton;
 		protected System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 		protected System.Web.UI.WebControls.HyperLink LoginLink;
-		protected System.Web.UI.WebControls.CheckBox LiftMgmtSmsOn;
-		protected System.Web.UI.WebControls.CheckBox EventMgmtSmsOn;
-		protected System.Web.UI.HtmlControls.HtmlTableRow LiftMgmtRow;
-		protected System.Web.UI.HtmlControls.HtmlTableRow EventMgmtRow;
-		protected System.Web.UI.HtmlControls.HtmlGenericControl SendPassLink;
 
 		private void Page_Load(object sender, System.EventArgs e)
 		{
@@ -45,13 +37,13 @@ namespace kcm.ch.EventSite.Web
 		/// </summary>
 		private void InitializeComponent()
 		{    
-			this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
+			this.SendButton.Click += new System.EventHandler(this.SendButton_Click);
 			this.Load += new System.EventHandler(this.Page_Load);
 			this.PreRender += new EventHandler(Register_PreRender);
 		}
 		#endregion
 
-		private void RegisterButton_Click(object sender, System.EventArgs e)
+		private void SendButton_Click(object sender, System.EventArgs e)
 		{
 			if(IsValid)
 			{
@@ -63,7 +55,8 @@ namespace kcm.ch.EventSite.Web
 
 				try
 				{
-					Contact c = new Contact(BLL.Mandator, Name.Text, Email.Text, MobilePhone.Text, LiftMgmtSmsOn.Checked, EventMgmtSmsOn.Checked, false, 0, 0, false);
+					Contact c = BLL.GetContact(Email.Text.Trim());
+					c.
 
 					string userInfo = BLL.AddContact(c);
 					if(userInfo != null)
@@ -80,9 +73,6 @@ namespace kcm.ch.EventSite.Web
 
 		private void Register_PreRender(object sender, EventArgs e)
 		{
-			LiftMgmtRow.Visible = BLL.Mandator.IsLiftManagementEnabled;
-			EventMgmtRow.Visible = BLL.Mandator.SmsNotifications;
-			SendPassLink.Visible = !BLL.Mandator.UseExternalAuth;
 		}
 	}
 }

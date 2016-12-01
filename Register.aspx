@@ -53,10 +53,8 @@
 					<td colspan="2" style="WHITE-SPACE: normal">
 						<span style="COLOR: red; font-weight: bold;">Wichtig! Bitte lesen:</span>&nbsp;Die Registration muss nach dem Absenden noch vom 
 						Administrator vervollständigt werden. Du erhälst ein Email sobald dies erfolgt 
-						ist. Danach kannst du dich&nbsp;mittels demselben Benutzernamen 
-						und&nbsp;Passwort wie im KCM Administrations Web hier auf der EventSite 
-						anmelden. Falls&nbsp;du diese&nbsp;Login-Daten vergessen hast: <a href="http://www.kcm.ch/admin/sendpass.asp">
-							hier klicken</a><BR>
+						ist. Danach kannst du dich hier auf der EventSite anmelden. <span id="SendPassLink" runat="server">Falls du diese Login-Daten
+						vergessen hast: <a href="SendPass.aspx">hier klicken</a></span><BR>
 						<asp:HyperLink id="LoginLink" runat="server">Hier gehts zurück zum Login</asp:HyperLink></td>
 				</tr>
 			</table>

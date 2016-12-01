@@ -477,6 +477,29 @@ Mandant: {2}
 			EventSiteDA.ChangePassword(contact.ContactId, newLogin, newPassword);
 		}
 
+		public bool SendPassword(Contact contact)
+		{
+			string password = EventSiteDA.GetPassword(contact.ContactId);
+
+			bool smtpUseSSL = EventSiteConfiguration.Current.MailConfiguration.UseSSL;
+			string smtpServer = EventSiteConfiguration.Current.MailConfiguration.SmtpServer;
+			int smtpPort = EventSiteConfiguration.Current.MailConfiguration.SmtpPort;
+			string smtpUser = EventSiteConfiguration.Current.MailConfiguration.SmtpUser;
+			string smtpPass = EventSiteConfiguration.Current.MailConfiguration.SmtpPass;
+			bool sendSmsOn = EventSiteConfiguration.Current.NotificationConfiguration.SendSmsOn;
+			bool offlineMode = EventSiteConfiguration.Current.OfflineMode;
+
+			EmailMessage mailObj = (!String.IsNullOrEmpty(smtpPass)
+															? new EmailMessage(smtpServer, smtpUseSSL, smtpPort, smtpUser, smtpPass)
+															: new EmailMessage(smtpServer));
+
+			mailObj.SendMail(sender.Email == null ? mandator.MandatorName : sender.Name,
+											 sender.Email ?? mandator.MandatorMail, recipient.Email, mailSubject,
+											 mailBody, EmailMessage.EmailMessageFormat.Html);
+
+			return true;
+		}
+
 		public ArrayList ListContacts()
 		{
 			ArrayList c = EventSiteDA.ListContacts(Mandator);

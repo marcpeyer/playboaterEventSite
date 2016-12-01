@@ -408,6 +408,28 @@ namespace kcm.ch.EventSite.DataAccessLayer
 			}
 		}
 
+		public static string GetPassword(int contactId)
+		{
+			int retVal = -1;
+			using (StoredProcedure sp = new StoredProcedure(connectionString, "ES_GetPassword"))
+			{
+				sp.AddParameter("@ContactId", SqlDbType.Int, contactId);
+				string pw = sp.ExecuteScalar() as string;
+				retVal = sp.ReturnValue;
+
+				switch (retVal)
+				{
+					case 100:
+						throw new EventSiteException("Die angegebene ContactId wurde nicht gefunden. Evtl. wurde der Kontakt inzwischen gelöscht.", 100);
+					case 0:
+						//all ok
+						return pw;
+					default:
+						throw new EventSiteException("Unbekannter ReturnValue beim lesen des Logins", 900);
+				}
+			}
+		}
+
 		/// <summary>
 		/// Gets an existing contact from the database.
 		/// </summary>
