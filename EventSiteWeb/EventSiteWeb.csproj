@@ -43,11 +43,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ajax, Version=5.7.22.2, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Ajax.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="playboater.gallery.commons, Version=1.0.4384.20773, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\playboater.gallery.commons.dll</HintPath>
+    </Reference>
+    <Reference Include="playboater.gallery.webcontrols">
+      <HintPath>..\lib\playboater.gallery.webcontrols.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -154,16 +169,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="About.aspx" />
+    <Content Include="AccessDenied.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Login.aspx" />
+    <Content Include="modules\AJAXDatePickerControl.ascx" />
+    <Content Include="modules\ContactControl.ascx" />
+    <Content Include="modules\Navigation.ascx" />
+    <Content Include="modules\PopupControl.ascx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -211,6 +233,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AccessDenied.aspx.cs">
+      <DependentUpon>AccessDenied.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Contact.aspx.cs">
@@ -220,11 +250,34 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\AJAXDatePickerControl.ascx.cs">
+      <DependentUpon>AJAXDatePickerControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\ContactControl.ascx.cs">
+      <DependentUpon>ContactControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\DragableControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\Navigation.ascx.cs">
+      <DependentUpon>Navigation.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="modules\PopupControl.ascx.cs">
+      <DependentUpon>PopupControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PageBase.cs">
@@ -258,6 +311,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EventSiteAPI\EventSiteAPI.csproj">
+      <Project>{c9f7aec6-e330-46df-9459-5de82fa22f2a}</Project>
+      <Name>EventSiteAPI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EventSiteBusinessLayer\EventSiteBusinessLayer.csproj">
       <Project>{d4442ffb-77fb-441d-95de-064d44d28b80}</Project>
       <Name>EventSiteBusinessLayer</Name>
@@ -268,8 +325,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="About.aspx.resx">
+      <DependentUpon>About.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AccessDenied.aspx.resx">
+      <DependentUpon>AccessDenied.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Default.aspx.resx">
+      <DependentUpon>Default.aspx.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.aspx.resx">
       <DependentUpon>Login.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modules\AJAXDatePickerControl.ascx.resx">
+      <DependentUpon>AJAXDatePickerControl.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modules\ContactControl.ascx.resx">
+      <DependentUpon>ContactControl.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modules\Navigation.ascx.resx">
+      <DependentUpon>Navigation.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="modules\PopupControl.ascx.resx">
+      <DependentUpon>PopupControl.ascx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
