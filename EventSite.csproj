@@ -195,9 +195,6 @@
     <Content Include="Locations.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Login.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="MaintenanceMode.aspx">
       <SubType>Form</SubType>
     </Content>
@@ -280,10 +277,6 @@
       <DependentUpon>Locations.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="MaintenanceMode.aspx.cs">
       <DependentUpon>MaintenanceMode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,9 +302,6 @@
     </Compile>
     <Compile Include="MyDetails.aspx.cs">
       <DependentUpon>MyDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="SendPass.aspx.cs">
@@ -372,10 +362,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Locations.aspx.resx">
       <DependentUpon>Locations.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.aspx.resx">
-      <DependentUpon>Login.aspx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="MaintenanceMode.aspx.resx">
