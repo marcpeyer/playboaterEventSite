@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EventSiteWeb {
+namespace kcm.ch.EventSite.Web {
     
     
     public partial class SiteMaster {

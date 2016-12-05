@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Routing;
 using Microsoft.AspNet.FriendlyUrls;
 
-namespace EventSiteWeb
+namespace kcm.ch.EventSite.Web
 {
     public static class RouteConfig
     {

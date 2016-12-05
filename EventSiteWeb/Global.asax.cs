@@ -10,7 +10,7 @@ using System.Web.SessionState;
 using kcm.ch.EventSite.Common;
 using System.Security.Principal;
 
-namespace EventSiteWeb
+namespace kcm.ch.EventSite.Web
 {
   public class Global : HttpApplication
   {

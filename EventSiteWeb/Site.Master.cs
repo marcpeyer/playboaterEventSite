@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
 
-namespace EventSiteWeb
+namespace kcm.ch.EventSite.Web
 {
     public partial class SiteMaster : MasterPage
     {
