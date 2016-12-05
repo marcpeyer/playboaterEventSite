@@ -171,10 +171,13 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AccessDenied.aspx" />
+    <Content Include="Contacts.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EventDetails.aspx" />
+    <Content Include="Events.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -212,15 +215,22 @@
     <Content Include="images\icons\refresh.gif" />
     <Content Include="images\icons\show_new.gif" />
     <Content Include="images\icons\show_old.gif" />
+    <Content Include="Journey.aspx" />
+    <Content Include="Lift.aspx" />
+    <Content Include="Locations.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="MaintenanceMode.aspx" />
     <Content Include="modules\AJAXDatePickerControl.ascx" />
     <Content Include="modules\ContactControl.ascx" />
     <Content Include="modules\Navigation.ascx" />
     <Content Include="modules\PopupControl.ascx" />
+    <Content Include="MyDetails.aspx" />
     <Content Include="pages\BrowserCheck.js" />
     <Content Include="pages\DatePicker.css" />
     <Content Include="pages\EventSite.css" />
     <Content Include="pages\EventSiteCommons.js" />
+    <Content Include="Register.aspx" />
+    <Content Include="RemoteLogin.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -252,9 +262,13 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="SendPass.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="UnsubscribeMailingList.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Bundle.config" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
@@ -278,15 +292,43 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Contacts.aspx.cs">
+      <DependentUpon>Contacts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EventDetails.aspx.cs">
+      <DependentUpon>EventDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Events.aspx.cs">
+      <DependentUpon>Events.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Journey.aspx.cs">
+      <DependentUpon>Journey.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Lift.aspx.cs">
+      <DependentUpon>Lift.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations.aspx.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MaintenanceMode.aspx.cs">
+      <DependentUpon>MaintenanceMode.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="modules\AJAXDatePickerControl.ascx.cs">
@@ -308,10 +350,26 @@
       <DependentUpon>PopupControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="MyDetails.aspx.cs">
+      <DependentUpon>MyDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="PageBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RemoteLogin.aspx.cs">
+      <DependentUpon>RemoteLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendPass.aspx.cs">
+      <DependentUpon>SendPass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -325,6 +383,10 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UnsubscribeMailingList.aspx.cs">
+      <DependentUpon>UnsubscribeMailingList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
@@ -359,11 +421,32 @@
     <EmbeddedResource Include="AccessDenied.aspx.resx">
       <DependentUpon>AccessDenied.aspx.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Contacts.aspx.resx">
+      <DependentUpon>Contacts.aspx.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Default.aspx.resx">
       <DependentUpon>Default.aspx.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EventDetails.aspx.resx">
+      <DependentUpon>EventDetails.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Events.aspx.resx">
+      <DependentUpon>Events.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Journey.aspx.resx">
+      <DependentUpon>Journey.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lift.aspx.resx">
+      <DependentUpon>Lift.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locations.aspx.resx">
+      <DependentUpon>Locations.aspx.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.aspx.resx">
       <DependentUpon>Login.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintenanceMode.aspx.resx">
+      <DependentUpon>MaintenanceMode.aspx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modules\AJAXDatePickerControl.ascx.resx">
       <DependentUpon>AJAXDatePickerControl.ascx.cs</DependentUpon>
@@ -376,6 +459,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modules\PopupControl.ascx.resx">
       <DependentUpon>PopupControl.ascx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MyDetails.aspx.resx">
+      <DependentUpon>MyDetails.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register.aspx.resx">
+      <DependentUpon>Register.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RemoteLogin.aspx.resx">
+      <DependentUpon>RemoteLogin.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendPass.aspx.resx">
+      <DependentUpon>SendPass.aspx.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnsubscribeMailingList.aspx.resx">
+      <DependentUpon>UnsubscribeMailingList.aspx.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

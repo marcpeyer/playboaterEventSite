@@ -139,62 +139,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Contacts.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="EventDetails.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Events.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="Global.asax">
     </Content>
     <Content Include="Help.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="Journey.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Lift.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Locations.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="MaintenanceMode.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="MyDetails.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="SendPass.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Register.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="RemoteLogin.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="UnsubscribeMailingList.aspx">
-      <SubType>Form</SubType>
-    </Content>
     <Content Include="Web.config" />
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Contacts.aspx.cs">
-      <DependentUpon>Contacts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EventDetails.aspx.cs">
-      <DependentUpon>EventDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Events.aspx.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -204,96 +156,12 @@
       <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Journey.aspx.cs">
-      <DependentUpon>Journey.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Lift.aspx.cs">
-      <DependentUpon>Lift.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Locations.aspx.cs">
-      <DependentUpon>Locations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MaintenanceMode.aspx.cs">
-      <DependentUpon>MaintenanceMode.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MyDetails.aspx.cs">
-      <DependentUpon>MyDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SendPass.aspx.cs">
-      <DependentUpon>SendPass.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RemoteLogin.aspx.cs">
-      <DependentUpon>RemoteLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UnsubscribeMailingList.aspx.cs">
-      <DependentUpon>UnsubscribeMailingList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <EmbeddedResource Include="Contacts.aspx.resx">
-      <DependentUpon>Contacts.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EventDetails.aspx.resx">
-      <DependentUpon>EventDetails.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Events.aspx.resx">
-      <DependentUpon>Events.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Global.asax.resx">
       <DependentUpon>Global.asax.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.aspx.resx">
       <DependentUpon>Help.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Journey.aspx.resx">
-      <DependentUpon>Journey.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lift.aspx.resx">
-      <DependentUpon>Lift.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locations.aspx.resx">
-      <DependentUpon>Locations.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MaintenanceMode.aspx.resx">
-      <DependentUpon>MaintenanceMode.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyDetails.aspx.resx">
-      <DependentUpon>MyDetails.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SendPass.aspx.resx">
-      <DependentUpon>SendPass.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Register.aspx.resx">
-      <DependentUpon>Register.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RemoteLogin.aspx.resx">
-      <DependentUpon>RemoteLogin.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UnsubscribeMailingList.aspx.resx">
-      <DependentUpon>UnsubscribeMailingList.aspx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
