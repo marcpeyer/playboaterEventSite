@@ -69,6 +69,10 @@ namespace kcm.ch.EventSite.BusinessLayer
 		{
 			return EventSiteDA.GetMandator(EventSiteConfiguration.Current.DefaultMandatorId);
 		}
+		public static List<Mandator> GetAllMandators()
+		{
+			return EventSiteDA.ListMandators();
+		}
 
 		public void RenewCurrentContact()
 		{

@@ -30,6 +30,68 @@ namespace kcm.ch.EventSite.DataAccessLayer
 
 		#region Mandator methods
 		/// <summary>
+		/// Lists all mandators in the database.
+		/// </summary>
+		/// <returns>Returns a list of each <see cref="Mandator">Mandator</see> in the db.</returns>
+		public static List<Mandator> ListMandators()
+		{
+			List<Mandator> mandators = new List<Mandator>();
+			if (false)
+			{
+				using (StoredProcedure sp = new StoredProcedure(connectionString, "ES_ListMandators"))
+				{
+					SqlDataReader data = sp.ExecuteDataReader();
+
+					while (data.Read())
+					{
+					/*	Mandator mandator = new Mandator(
+							pbHelpers.GetInt32(data, "ContactId"),
+							pbHelpers.GetString(data, "Name"),
+							pbHelpers.GetString(data, "Email"),
+							pbHelpers.GetString(data, "MobilePhone"),
+							pbHelpers.GetBool(data, "LiftMgmtSmsOn"),
+							pbHelpers.GetBool(data, "EventMgmtSmsOn"),
+							pbHelpers.GetBool(data, "UseTwoWaySms"),
+							pbHelpers.GetInt32(data, "SmsLog"),
+							pbHelpers.GetInt32(data, "SmsPurchased"),
+							pbHelpers.GetBool(data, "IsDeleted"),
+							pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+							pbHelpers.GetString(data, "Login"));
+							
+						mandators.Add(mandator);*/
+					}
+
+					data.Close();
+
+					int retVal = -1;
+					retVal = sp.ReturnValue;
+					switch (retVal)
+					{
+						case 0:
+							//all ok
+							return mandators;
+						default:
+							throw new EventSiteException("Unbekannter ReturnValue nach dem Selektieren der Daten", 900);
+					}
+				}
+			}
+			else
+			{
+				mandators.Add(new Mandator("1", "name 1", "short 1", "mail@mail", "www entry", "", "", null, null, null,
+					false, true, false, false, false, false, false, false, false, false, false, false, false, null, null, null,
+					0, 0, false, false, null, null, null, null));
+				mandators.Add(new Mandator("2", "name 2", "short 2", "mail@mail", "www entry", "", "", null, null, null,
+					false, true, false, false, false, false, false, false, false, false, false, false, false, null, null, null,
+					0, 0, false, false, null, null, null, null));
+				return mandators;
+				mandators.Add(new Mandator("3", "name 3", "short 3", "mail@mail", "www entry", "", "", null, null, null,
+					false, true, false, false, false, false, false, false, false, false, false, false, false, null, null, null,
+					0, 0, false, false, null, null, null, null));
+				return mandators;
+			}
+		}
+
+		/// <summary>
 		/// Gets an existing mandator from the database.
 		/// </summary>
 		/// <param name="mandatorId">Mandator's id</param>

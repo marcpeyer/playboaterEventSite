@@ -215,6 +215,7 @@
     <Content Include="images\icons\refresh.gif" />
     <Content Include="images\icons\show_new.gif" />
     <Content Include="images\icons\show_old.gif" />
+    <Content Include="Index.aspx" />
     <Content Include="Journey.aspx" />
     <Content Include="Lift.aspx" />
     <Content Include="Locations.aspx" />
@@ -310,6 +311,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Journey.aspx.cs">
       <DependentUpon>Journey.aspx</DependentUpon>
