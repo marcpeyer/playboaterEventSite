@@ -14,11 +14,6 @@ namespace kcm.ch.EventSite.Web
 		{
 			MandatorList.DataSource = EventSiteBL.GetAllMandators();
 			MandatorList.DataBind();
-	}
-
-	protected override void OnDataBinding(EventArgs e)
-		{
-			base.OnDataBinding(e);
 		}
 	}
 }

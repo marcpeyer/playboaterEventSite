@@ -18,7 +18,7 @@ namespace kcm.ch.EventSite.Web
     {
       // Code that runs on application startup
       RouteConfig.RegisterRoutes(RouteTable.Routes);
-      //BundleConfig.RegisterBundles(BundleTable.Bundles);
+      BundleConfig.RegisterBundles(BundleTable.Bundles);
     }
 
     protected void Application_BeginRequest(Object sender, EventArgs e)
