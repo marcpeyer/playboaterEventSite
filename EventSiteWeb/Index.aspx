@@ -5,6 +5,6 @@
     <h1>Bitte einen Mandanten wählen</h1>
     </div>
     <asp:Repeater ID="MandatorList" runat="server">
-			<ItemTemplate><div><%# Eval("MandatorName") %></div></ItemTemplate>
+			<ItemTemplate><div><a href="Default.aspx?mid=<%# Eval("MandatorId") %>" target="_self"><%# Eval("MandatorName") %></a></div></ItemTemplate>
 		</asp:Repeater>
 </asp:Content>
