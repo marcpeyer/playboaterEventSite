@@ -1,14 +1,8 @@
-<%@ Page language="c#" Codebehind="MyDetails.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.MyDetails" %>
+<%@ Page Title="Meine Details" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="MyDetails.aspx.cs" Inherits="kcm.ch.EventSite.Web.MyDetails" %>
 <%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title runat="server" id="title">Meine Details</title>
-		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
-		<meta content="C#" name="CODE_LANGUAGE">
-		<meta content="JavaScript" name="vs_defaultClientScript">
-		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<!--		<title runat="server" id="title">Meine Details</title>
+		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
 			function toggleChangePasswordTable()
@@ -24,9 +18,6 @@
 				}
 			}
 		</script>
-	</HEAD>
-	<body>
-		<form id="Form1" method="post" runat="server">
 			<es:navigation id="PageNavigation" runat="server"></es:navigation>
 			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo - Meine Details</h1>
@@ -131,6 +122,4 @@
 			<div style="FONT-SIZE: 12px" id="AutoNotifSubscriptionDesc" runat="server">- Automatische Abonnierung: Wenn eine ganze positive Zahl angegeben ist, werden neue Anlässe in derjenigen Kategorie automatisch abonniert und es werden dadurch die gegebene Anzahl SMS verschickt. Wenn das Feld leer ist, ist die automatische Abonnierung ausgeschaltet.</div>
 
 			<asp:Button id="LogoutButton" style="DISPLAY: none" runat="server" Text="logout"></asp:Button>
-		</form>
-	</body>
-</HTML>
+</asp:Content>
