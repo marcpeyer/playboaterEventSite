@@ -1,16 +1,8 @@
-<%@ Page language="c#" Codebehind="Default.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Default" %>
+<%@ Page Title="Über" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="kcm.ch.EventSite.Web.Default" %>
+<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <%@ Register TagPrefix="es" TagName="ContactControl" Src="modules/ContactControl.ascx" %>
 <%@ Register TagPrefix="es" TagName="PopupControl" Src="modules/PopupControl.ascx" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title runat="server" id="title">Event-Site des SoUndSo</title>
-		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
-		<meta content="C#" name="CODE_LANGUAGE">
-		<meta content="JavaScript" name="vs_defaultClientScript">
-		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
 		<script language="javascript" src="pages/EventSiteCommons.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
@@ -161,9 +153,6 @@
 			{}
 		}
 		</script>
-	</HEAD>
-	<body onclick="window.setTimeout('HidePopups()', 15);">
-		<form id="Form1" onsubmit="fOnSubmit();" method="post" runat="server">
 			<es:Navigation id="PageNavigation" runat="server"></es:Navigation>
 			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
@@ -491,8 +480,8 @@
 					catch(e)
 					{};
 				}
+
+				document.body.onclick = function () { window.setTimeout('HidePopups()', 15); };
 //-->
 			</script>
-		</form>
-	</body>
-</HTML>
+</asp:Content>

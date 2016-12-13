@@ -1,15 +1,7 @@
+<%@ Page Title="Anlass Neu / Bearbeiten" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" validateRequest="false" EnableEventValidation="false" CodeBehind="Events.aspx.cs" Inherits="kcm.ch.EventSite.Web.Events" %>
 <%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <%@ Register TagPrefix="dpick" TagName="AJAXDatePickerControl" Src="modules/AJAXDatePickerControl.ascx" %>
-<%@ Page language="c#" Codebehind="Events.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Events" validateRequest="false"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title runat="server" id="title">"EventTitle"</title>
-		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
-		<meta content="C#" name="CODE_LANGUAGE">
-		<meta content="JavaScript" name="vs_defaultClientScript">
-		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
 		<script language="javascript" src="pages/EventSiteCommons.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
@@ -18,9 +10,6 @@
 			showEventSiteModalWindow('Locations.aspx?mid=' + mandatorId, 'EventSite_Locations', 400, 800, 'LocationMgrButton');
 		}
 		</script>
-	</HEAD>
-	<body>
-		<form id="Form1" method="post" runat="server">
 			<es:navigation id="PageNavigation" runat="server"></es:navigation>
 			<hr>
 			<h1 id="pageTitle" runat="server">Anlass: "EventTitle"</h1>
@@ -92,6 +81,5 @@
 					ControlToValidate="NotifyChange" EnableClientScript="False">*</asp:requiredfieldvalidator></div>
 			<asp:button id="ResetButton" runat="server" CausesValidation="False" Text="Zurücksetzen"></asp:button>&nbsp;<asp:button id="SaveButton" runat="server" Text="Speichern"></asp:button><asp:button id="LocationMgrButton" style="DISPLAY: none" runat="server" CausesValidation="False"
 				Text="Orte Bearbeiten"></asp:button>
-			<asp:validationsummary id="validationSummary" runat="server" EnableClientScript="False"></asp:validationsummary></form>
-	</body>
-</HTML>
+			<asp:validationsummary id="validationSummary" runat="server" EnableClientScript="False"></asp:validationsummary>
+</asp:Content>
