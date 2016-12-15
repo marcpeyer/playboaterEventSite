@@ -56,6 +56,14 @@
 				<li>Berücksichtigung der Parameter "Min. Anzahl Anmeldungen" und "Max. Anzahl Anmeldungen"<!-- ACHTUNG: nur Subscriptions mit IsDeletable = 0 zählen! --></li>
 				<li>Evtl: beim Erstellen von Anl&auml;ssen soll im KCM Homepage Kalender ein neuer Eintrag erstellt werden</li>
 			</ul>
+			<h3>Version 5.0.vnext:</h3>
+			<ul>
+				<li>Upgrade auf .NET Framework 4.6.1</li>
+				<li>Startseite zur Mandantenwahl eingebaut</li>
+				<li>Konsolidierung und Zusammenführung aller Mandanten</li>
+				<li>Migration nach EventSite.ch</li>
+				<li>Redesign mit Master Pages</li>
+			</ul>
 			<h3>Version 4.1.4464:</h3>
 			<ul>
 				<li>Neu wird beim Konfiguration laden erst versucht eine Mandanten spezifische Konfiguration zu laden.</li>
