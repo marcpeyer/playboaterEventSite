@@ -7,7 +7,7 @@
 		<script language="javascript" type="text/javascript">
 			function toggleChangePasswordTable()
 			{
-				var elem = document.getElementById('ChangePasswordTable');
+				var elem = document.getElementById('MainContent_ChangePasswordTable');
 				if (elem.style.display == 'none')
 				{
 					elem.style.display = 'block';
