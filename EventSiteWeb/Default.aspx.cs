@@ -438,8 +438,6 @@ namespace kcm.ch.EventSite.Web
 			}
 			#endregion
 
-			Page.Form.Attributes.Add("onsubmit", "fOnSubmit();");
-
 			EventCategories.Attributes.Add("onchange", String.Format("document.getElementById('{0}').checked = false;document.getElementById('{0}').click();", chkCategoryFilterOn.ClientID));
 			EventCategoryFilterPopup.PopupText = IsCategoryFilterOn ? "Filter deaktivieren" : "Nach Kategorie filtern";
 			EventCategoryFilterPopup.PopupIconSrc = IsCategoryFilterOn ? "images\\icons\\filter_on.gif" : "images\\icons\\filter_off.gif";

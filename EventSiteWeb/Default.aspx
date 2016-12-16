@@ -125,7 +125,7 @@
 		
 			HidePopups();
 			
-			document.getElementById('refreshEventButton').click();
+			document.getElementById('MainContent_refreshEventButton').click();
 		}
 		
 		function resetPopupVisible()
@@ -133,25 +133,6 @@
 			popupVisible = false;
 		}
 		
-		function fOnSubmit()
-		{
-			//alert('onsubmit');
-			document.body.style.cursor = 'wait';
-			try
-			{
-				document.getElementById('AddSubscription').style.cursor = 'wait';
-				window.setTimeout('document.getElementById(\'AddSubscription\').disabled = true', 100);
-			}
-			catch(e)
-			{}
-			try
-			{
-				document.getElementById('AddContact').style.cursor = 'wait';
-				window.setTimeout('document.getElementById(\'AddContact\').disabled = true', 100);
-			}
-			catch(e)
-			{}
-		}
 		</script>
 			<es:Navigation id="PageNavigation" runat="server"></es:Navigation>
 			<hr>
@@ -428,8 +409,8 @@
 				function fResetEventDetailSize()
 				{
 					var container = document.getElementById('pnlEventContainer');
-					var source = document.getElementById('pnlEvent');
-					var target = document.getElementById('pnlEventDetails');
+					var source = document.getElementById('MainContent_pnlEvent');
+					var target = document.getElementById('MainContent_pnlEventDetails');
 					target.style.width = (document.body.clientWidth - source.clientWidth - 35) + 'px';
 					container.style.width = (document.body.clientWidth - 20) + 'px';
 					//alert('reseted');
@@ -439,8 +420,8 @@
 				function fSetEventDetailSize()
 				{
 					var container = document.getElementById('pnlEventContainer');
-					var target = document.getElementById('pnlEventDetails');
-					var source = document.getElementById('pnlEvent');
+					var target = document.getElementById('MainContent_pnlEventDetails');
+					var source = document.getElementById('MainContent_pnlEvent');
 					
 					var gap;
 
@@ -482,6 +463,23 @@
 				}
 
 				document.body.onclick = function () { window.setTimeout('HidePopups()', 15); };
+
+				window.theForm.onsubmit = function () {
+					//alert('onsubmit');
+					document.body.style.cursor = 'wait';
+					try {
+						document.getElementById('MainContent_AddSubscription').style.cursor = 'wait';
+						window.setTimeout('document.getElementById(\'AddSubscription\').disabled = true', 100);
+					}
+					catch (e)
+					{ }
+					try {
+						document.getElementById('MainContent_AddContact').style.cursor = 'wait';
+						window.setTimeout('document.getElementById(\'AddContact\').disabled = true', 100);
+					}
+					catch (e)
+					{ }
+				}
 //-->
 			</script>
 </asp:Content>
