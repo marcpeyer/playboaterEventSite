@@ -1,5 +1,4 @@
 <%@ Page Title="Anlass Neu / Bearbeiten" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" validateRequest="false" EnableEventValidation="false" CodeBehind="Events.aspx.cs" Inherits="kcm.ch.EventSite.Web.Events" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <%@ Register TagPrefix="dpick" TagName="AJAXDatePickerControl" Src="modules/AJAXDatePickerControl.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
@@ -10,8 +9,6 @@
 			showEventSiteModalWindow('Locations.aspx?mid=' + mandatorId, 'EventSite_Locations', 400, 800, 'LocationMgrButton');
 		}
 		</script>
-			<es:navigation id="PageNavigation" runat="server"></es:navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Anlass: "EventTitle"</h1>
 			<asp:panel id="pnlEvent" style="BORDER-RIGHT: 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: 1px solid; PADDING-LEFT: 3px; MARGIN-BOTTOM: 10px; PADDING-BOTTOM: 3px; BORDER-LEFT: 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: 1px solid"
 				runat="server" BackColor="#EEEEEE">

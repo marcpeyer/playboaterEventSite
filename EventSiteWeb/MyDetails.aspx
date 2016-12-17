@@ -1,5 +1,4 @@
 <%@ Page Title="Meine Details" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="MyDetails.aspx.cs" Inherits="kcm.ch.EventSite.Web.MyDetails" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <!--		<title runat="server" id="title">Meine Details</title>
 		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
@@ -18,8 +17,6 @@
 				}
 			}
 		</script>
-			<es:navigation id="PageNavigation" runat="server"></es:navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo - Meine Details</h1>
 			<table style="TABLE-LAYOUT: fixed;" width="100%">
 				<col width="300">

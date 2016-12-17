@@ -1,10 +1,7 @@
 <%@ Page Title="Kontakt-Administration" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Contacts.aspx.cs" Inherits="kcm.ch.EventSite.Web.Contacts" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <%@ Register TagPrefix="es" TagName="ContactControl" Src="modules/ContactControl.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
-			<es:Navigation runat="server" id="PageNavigation"></es:Navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo - Kontakt-Administration</h1>
 			<asp:datagrid id="dgrContacts" runat="server" AutoGenerateColumns="False" Width="750px" BorderColor="#999999"
 				BorderStyle="None" BorderWidth="1px" BackColor="White" CellPadding="3" GridLines="Vertical"

@@ -1,10 +1,7 @@
 <%@ Page Title="Über" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="About.aspx.cs" Inherits="kcm.ch.EventSite.Web.About" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <!--		<title runat="server" id="title">About</title>
 		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
-			<es:Navigation runat="server" id="PageNavigation"></es:Navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
 			<table width="400">
 				<tr>

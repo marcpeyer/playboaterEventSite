@@ -1,5 +1,4 @@
 <%@ Page Title="Über" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="kcm.ch.EventSite.Web.Default" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <%@ Register TagPrefix="es" TagName="ContactControl" Src="modules/ContactControl.ascx" %>
 <%@ Register TagPrefix="es" TagName="PopupControl" Src="modules/PopupControl.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -134,8 +133,6 @@
 		}
 		
 		</script>
-			<es:Navigation id="PageNavigation" runat="server"></es:Navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
 			<div id="pnlEventContainer" style="BORDER-RIGHT: blue 0px solid; BORDER-TOP: blue 0px solid; MARGIN-BOTTOM: 10px; BORDER-LEFT: blue 0px solid; BORDER-BOTTOM: blue 0px solid">
 				<asp:panel id="pnlEvent" style="BORDER-RIGHT: red 0px solid; BORDER-TOP: red 0px solid; FLOAT: left; MARGIN-BOTTOM: auto; BORDER-LEFT: red 0px solid; MARGIN-RIGHT: 5px; BORDER-BOTTOM: red 0px solid"
