@@ -69,7 +69,17 @@ namespace kcm.ch.EventSite.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-					Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "midInserter", "alert('todo: add mid to hrefs');", true);
+	        string script = $"var querystring = 'mid={Request.QueryString["mid"]}';" + @"
+		$('a').each(function() {
+    var href = $(this).attr('href');
+
+    if (href && href.length > 0 && href.substr(0, 1) != '#' && href.substr(0, 4).toLowerCase() != 'java'
+				&& href.substr(0, 4).toLowerCase() != 'mail') {
+        href += (href.match(/\?/) ? '&' : '?') + querystring;
+        $(this).attr('href', href);
+    }
+});";
+					Page.ClientScript.RegisterStartupScript(this.GetType(), "midInserter", script, true);
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
