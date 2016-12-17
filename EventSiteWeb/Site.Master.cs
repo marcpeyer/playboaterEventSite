@@ -69,7 +69,7 @@ namespace kcm.ch.EventSite.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+					Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "midInserter", "alert('todo: add mid to hrefs');", true);
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
