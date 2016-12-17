@@ -31,7 +31,6 @@ namespace kcm.ch.EventSite.Web
 		protected HyperLink LocationMgrLink;
 		protected Button LocationMgrButton;
 		protected AJAXDatePicker.AJAXDatePickerControl StartDate;
-		protected Navigation PageNavigation;
 		protected System.Web.UI.WebControls.RadioButtonList NotifyChange;
 		protected System.Web.UI.HtmlControls.HtmlGenericControl NotifyChangeArea;
 		protected System.Web.UI.WebControls.RequiredFieldValidator reqTitle;

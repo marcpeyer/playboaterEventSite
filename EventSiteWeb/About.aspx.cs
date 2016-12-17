@@ -13,7 +13,6 @@ namespace kcm.ch.EventSite.Web
 	{
 		protected HtmlGenericControl pageTitle;
 		protected HtmlGenericControl title;
-		protected Navigation PageNavigation;
 		protected HtmlTableRow MandatorSmsCreditRow;
 
 		protected string version = "";

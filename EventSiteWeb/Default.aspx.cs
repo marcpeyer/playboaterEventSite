@@ -58,7 +58,6 @@ namespace kcm.ch.EventSite.Web
 		protected HtmlGenericControl notifSubscription;
 		protected Button AddSubscription;
 		protected Button AddContact;
-		protected Navigation PageNavigation;
 		protected HtmlGenericControl legendDiv;
 		protected HtmlTableCell AddSubscriptionCell;
 		protected HtmlGenericControl subscriptionMailContainer;

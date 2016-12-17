@@ -223,7 +223,6 @@
     <Content Include="MaintenanceMode.aspx" />
     <Content Include="modules\AJAXDatePickerControl.ascx" />
     <Content Include="modules\ContactControl.ascx" />
-    <Content Include="modules\Navigation.ascx" />
     <Content Include="modules\PopupControl.ascx" />
     <Content Include="MyDetails.aspx" />
     <Content Include="pages\BrowserCheck.js" />
@@ -350,10 +349,6 @@
     <Compile Include="modules\DragableControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="modules\Navigation.ascx.cs">
-      <DependentUpon>Navigation.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="modules\PopupControl.ascx.cs">
       <DependentUpon>PopupControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -461,9 +456,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="modules\ContactControl.ascx.resx">
       <DependentUpon>ContactControl.ascx.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="modules\Navigation.ascx.resx">
-      <DependentUpon>Navigation.ascx.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="modules\PopupControl.ascx.resx">
       <DependentUpon>PopupControl.ascx.cs</DependentUpon>

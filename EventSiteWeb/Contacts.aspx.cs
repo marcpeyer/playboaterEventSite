@@ -20,7 +20,6 @@ namespace kcm.ch.EventSite.Web
 		protected HtmlInputHidden hdnDeleteConfiremd;
 		protected Button DeleteContact;
 		protected HtmlGenericControl pageTitle;
-		protected Navigation PageNavigation;
 		protected System.Web.UI.WebControls.Button LogoutButton;
 		protected HtmlGenericControl NameDesc;
 		protected HtmlGenericControl MailDesc;
