@@ -46,13 +46,14 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Event Site</a>
+                    <a class="navbar-brand" runat="server" href="~/Default">Event Site</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contacts">Contacts</a></li>
+                        <li><a runat="server" href="~/Default">Home</a></li>
+                        <li><a runat="server" href="~/Contacts">Kontakt-Administration</a></li>
+                        <li><a runat="server" href="~/Events">Anlässe bearbeiten / neu</a></li>
+                        <li><a runat="server" href="~/About">Über Event Site</a></li>
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>
@@ -63,9 +64,9 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li><a runat="server" href="~/MyDetails" title="Dein Account bearbeiten">Hallo, <%: Context.User.Identity.GetUserName().Split('|')[0]  %> !</a></li>
                                 <li>
-                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/Login" OnLoggingOut="Unnamed_LoggingOut" />
                                 </li>
                             </ul>
                         </LoggedInTemplate>

@@ -84,7 +84,9 @@ namespace kcm.ch.EventSite.Web
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {
-            Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
+						FormsAuthentication.SignOut();
+						Response.Redirect("Login?mid=" + Request.QueryString["mid"]);
+            //Context.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
     }
 
