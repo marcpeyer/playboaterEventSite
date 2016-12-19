@@ -59,9 +59,6 @@ h6
 }
 body
 {
-	/*background-image:url(../images/hintergr.jpg);*/
-	background-attachment:fixed;
-	background-color: #dadada;
 	margin:10px;
 	scrollbar-base-color: #ffffff;
 	scrollbar-3dlight-color: #AAAAAA;
@@ -286,40 +283,6 @@ TABLE > TBODY > TR > TD > DIV.smsBox
 	cursor: pointer;
 }
 
-.FeatureBox TD
-{
-	white-space: normal;
-}
-
-#notifSubscription
-{
-	BORDER: 1px solid black;
-	PADDING: 3px;
-	MARGIN-TOP: 5px;
-	WHITE-SPACE: nowrap;
-	BACKGROUND-COLOR: #eeeeee;
-	FONT-SIZE: X-Small;
-}
-
-#pnlEventDetails
-{
-	BORDER: red 0px solid;
-}
-
-#eventDetails
-{
-}
-
-#eventDetailsCell
-{
-	PADDING: 3px;
-	BORDER: black 1px solid;
-	BACKGROUND-COLOR: #eeeeee;
-}
-
-#eventDetailsTable
-{
-}
 
 .labelDescription
 {

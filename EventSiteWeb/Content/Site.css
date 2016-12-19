@@ -36,3 +36,88 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+.nav > li.shortNav {
+	display: none;
+}
+.nav > li > a{
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis
+}
+.nav > li.myNav {
+	max-width: 300px;
+}
+.navbar-toggle {
+	float: left;
+	margin-left: 15px;
+}
+
+#appInfoTable {
+	width: 460px;
+}
+@media screen and (max-width: 767px) {
+	.nav > li.myNav {
+		max-width: 300px;
+	}
+	#appInfoTable {
+		display: block;
+		overflow-x: scroll;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .nav > li.shortNav {
+        display: inherit;
+    }
+    .nav > li.fullNav {
+        display: none;
+    }
+	.nav > li.myNav {
+		max-width: 250px;
+	}
+}
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+	.nav > li.myNav {
+		max-width: 210px;
+	}
+}
+
+/* START old version styles */
+TD
+{
+	white-space: nowrap;
+}
+.FeatureBox TD
+{
+	white-space: normal;
+}
+
+#MainContent_notifSubscription
+{
+	BORDER: 1px solid black;
+	PADDING: 3px;
+	MARGIN-TOP: 5px;
+	WHITE-SPACE: nowrap;
+	BACKGROUND-COLOR: #eeeeee;
+	FONT-SIZE: X-Small;
+}
+
+#MainContent_pnlEventDetails
+{
+}
+
+#eventDetails
+{
+}
+
+#eventDetailsCell
+{
+	PADDING: 3px;
+	BORDER: black 1px solid;
+	BACKGROUND-COLOR: #eeeeee;
+}
+
+#eventDetailsTable
+{
+}
+/* END old version styles */

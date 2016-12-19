@@ -3,7 +3,7 @@
 <!--		<title runat="server" id="title">About</title>
 		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
-			<table width="400">
+			<table id="appInfoTable">
 				<tr>
 					<td>Titel dieser Webapplikation:</td>
 					<td>Event Site</td>
