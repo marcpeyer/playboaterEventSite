@@ -134,10 +134,9 @@
 		
 		</script>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
-			<div id="pnlEventContainer" style="BORDER-RIGHT: blue 0px solid; BORDER-TOP: blue 0px solid; MARGIN-BOTTOM: 10px; BORDER-LEFT: blue 0px solid; BORDER-BOTTOM: blue 0px solid">
-				<asp:panel id="pnlEvent" style="BORDER-RIGHT: red 0px solid; BORDER-TOP: red 0px solid; FLOAT: left; MARGIN-BOTTOM: auto; BORDER-LEFT: red 0px solid; MARGIN-RIGHT: 5px; BORDER-BOTTOM: red 0px solid"
-					runat="server">
-					<DIV id="eventChooser" style="BORDER-RIGHT: black 1px solid; PADDING-RIGHT: 3px; BORDER-TOP: black 1px solid; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px; BORDER-LEFT: black 1px solid; PADDING-TOP: 3px; BORDER-BOTTOM: black 1px solid; WHITE-SPACE: nowrap; BACKGROUND-COLOR: #eeeeee">
+			<div id="pnlEventContainer" style="MARGIN-BOTTOM: 10px;">
+				<asp:panel id="pnlEvent" style="FLOAT: left; MARGIN-BOTTOM: auto; MARGIN-RIGHT: 5px;" runat="server">
+					<DIV id="eventChooser" style="BORDER: black 1px solid; PADDING: 3px;  WHITE-SPACE: nowrap; BACKGROUND-COLOR: #eeeeee">
 						<asp:Label id="lblEvent" runat="server" Font-Size="X-Small">Anlass:</asp:Label>
 						<asp:DropDownList id="events" style="VERTICAL-ALIGN: middle" runat="server" AutoPostBack="True"></asp:DropDownList>
 						<asp:ListBox id="eventList" runat="server" AutoPostBack="True" Rows="8"></asp:ListBox>
@@ -157,58 +156,54 @@
 					</DIV>
 				</asp:panel>
 				<asp:Panel ID="pnlEventDetails" Runat="server">
-					<DIV id="eventDetails">
-					<TABLE style="width:100%;" cellSpacing="0" cellPadding="0">
-						<tr><td id="eventDetailsCell">
-						<TABLE id="eventDetailsTable" borderColor="red" cellSpacing="0" cellPadding="2"
-							width="100%" border="0">
-							<TR id="EventDetails_EventCategory" runat="server">
-								<TD style="FONT-SIZE: 12px" vAlign="top">Kategorie:</TD>
-								<TD style="FONT-SIZE: 12px" colSpan="3">
-									<asp:label id="EventCategoryLabel" runat="server"></asp:label></TD>
-							</TR>
-							<TR>
-								<TD style="FONT-SIZE: 12px" vAlign="top">Titel:</TD>
-								<TD style="FONT-SIZE: 12px" vAlign="top">
-									<asp:label id="TitleLabel" runat="server"></asp:label></TD>
-								<TD style="FONT-SIZE: 12px" vAlign="top">Ort:&nbsp;</TD>
-								<TD style="FONT-SIZE: 12px; WHITE-SPACE: normal">
-									<asp:label id="LocationLabel" runat="server"></asp:label></TD>
-							</TR>
-							<TR>
-								<TD style="FONT-SIZE: 12px">Datum, -zeit:</TD>
-								<TD style="FONT-SIZE: 12px">
-									<asp:label id="StartDateLabel" runat="server"></asp:label></TD>
-								<TD style="FONT-SIZE: 12px">Dauer:</TD>
-								<TD style="FONT-SIZE: 12px">
-									<asp:label id="DurationLabel" runat="server"></asp:label></TD>
-							</TR>
-							<TR id="EventDetails_MinMaxSubscriptions" runat="server">
-								<TD style="FONT-SIZE: 12px">Min. Anmeldungen:</TD>
-								<TD style="FONT-SIZE: 12px">
-									<asp:label id="MinSubscriptionsLabel" runat="server"></asp:label></TD>
-								<TD style="FONT-SIZE: 12px">Max. Anmeldungen:</TD>
-								<TD style="FONT-SIZE: 12px">
-									<asp:label id="MaxSubscriptionsLabel" runat="server"></asp:label></TD>
-							</TR>
-							<TR>
-								<TD id="EventDetails_EventUrlLabel" style="FONT-SIZE: 12px" runat="server">Web 
-									Adresse:</TD>
-								<TD id="EventDetails_EventUrlControl" style="FONT-SIZE: 12px" runat="server">
-									<asp:hyperlink id="UrlLink" runat="server"></asp:hyperlink>&nbsp;</TD>
-								<TD style="FONT-SIZE: 12px">Ersteller:</TD>
-								<TD style="FONT-SIZE: 12px">
-									<es:ContactControl id="EventCreator" runat="server"></es:ContactControl></TD>
-							</TR>
-							<TR>
-								<TD style="FONT-SIZE: 12px" vAlign="top">Beschreibung:</TD>
-								<TD style="FONT-SIZE: 12px; WHITE-SPACE: normal" colSpan="3">
-									<asp:label id="DescriptionLabel" runat="server"></asp:label></TD>
-							</TR>
-						</TABLE>
-						</td></tr>
-					</TABLE>
+					<DIV class="eventDetails">
+						<div class="eventDetailsColumn">
+							<div class="eventDetailsCell" id="EventDetails_EventCategory" runat="server">
+								<span class="eventDetailsLabel">Kategorie:</span>
+								<span class="eventDetailsValue"><asp:label id="EventCategoryLabel" runat="server"></asp:label></span>
+							</div>
+							<div class="eventDetailsCell">
+								<span class="eventDetailsLabel">Titel:</span>
+								<span class="eventDetailsValue"><asp:label id="TitleLabel" runat="server"></asp:label></span>
+							</div>
+							<div class="eventDetailsCell">
+								<span class="eventDetailsLabel">Datum, -zeit:</span>
+								<span class="eventDetailsValue"><asp:label id="StartDateLabel" runat="server"></asp:label></span>
+							</div>
+							<div class="eventDetailsCell" id="EventDetails_EventUrl" runat="server">
+								<span class="eventDetailsLabel">Web Adresse:</span>
+								<span class="eventDetailsValue"><asp:HyperLink ID="UrlLink" runat="server"></asp:HyperLink></span>
+							</div>
+							<div class="eventDetailsCell">
+								<span class="eventDetailsLabel">Ort:</span>
+								<span class="eventDetailsValue"><asp:label id="LocationLabel" runat="server"></asp:label></span>
+							</div>
+							<div class="eventDetailsCell">
+								<span class="eventDetailsLabel">Dauer:</span>
+								<span class="eventDetailsValue"><asp:label id="DurationLabel" runat="server"></asp:label></span>
+							</div>
+							<div class="eventDetailsCell" id="EventDetails_MinSubscriptions" runat="server">
+								<span class="eventDetailsLabel">Min. Anmeldungen:</span>
+								<span class="eventDetailsValue"><asp:label id="MinSubscriptionsLabel" runat="server"></asp:label></span>
+							</div>
+							<div class="eventDetailsCell" id="EventDetails_MaxSubscriptions" runat="server">
+								<span class="eventDetailsLabel">Max. Anmeldungen:</span>
+								<span class="eventDetailsValue"><asp:label id="MaxSubscriptionsLabel" runat="server"></asp:label></span>
+							</div>
+						</div>
+						<div class="eventDetailsColumn">
+							<div class="eventDetailsCell">
+								<span class="eventDetailsLabel">Ersteller:</span>
+								<span class="eventDetailsValue"><es:ContactControl ID="EventCreator" runat="server" /></span>
+							</div>
+						</div>
 					</DIV>
+					<div class="eventDetails">
+						<div class="eventDetailsCell">
+							<span class="eventDetailsLabel">Beschreibung:</span>
+							<span class="eventDetailsValue"><asp:Label ID="DescriptionLabel" runat="server"></asp:Label></span>
+						</div>
+					</div>
 				</asp:Panel>
 			</div>
 			<table style="MARGIN-BOTTOM: 15px; WIDTH: 100%" border="0">
@@ -328,8 +323,7 @@
 								Plätze<BR>
 								<IMG src="images/icons/car_full.gif"> = fährt selbst und hat keine freien 
 								Plätze mehr<BR>
-								<IMG src="images/icons/car_lift.gif"> = fährt bei jemandem anderen mit
-							</DIV>
+								<IMG src="images/icons/car_lift.gif"> = fährt bei jemandem anderen mit</DIV>
 						</asp:panel><asp:panel id="pnlAddContact" runat="server" Visible="False">
 							<asp:Label id="lblAddContact" Font-Size="X-Small" Runat="server">Für die angegebene E-Mail Adresse wurde noch kein<BR>Kontakt erfasst. Bitte Angaben zum Kontakt ausfüllen.</asp:Label>
 							<BR>
@@ -409,9 +403,9 @@
 					var source = document.getElementById('MainContent_pnlEvent');
 					var target = document.getElementById('MainContent_pnlEventDetails');
 					target.style.width = (document.body.clientWidth - source.clientWidth - 35) + 'px';
-					container.style.width = (document.body.clientWidth - 20) + 'px';
+					//container.style.width = (document.body.clientWidth - 20) + 'px';
 					//alert('reseted');
-					window.setTimeout('fSetEventDetailSize()', 5);
+					//window.setTimeout('fSetEventDetailSize()', 5);
 				}
 				
 				function fSetEventDetailSize()

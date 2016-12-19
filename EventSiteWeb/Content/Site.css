@@ -36,3 +36,17 @@ input[type="select"] {
         padding: 0;
     }
 }
+
+.eventDetails {
+	float: left;
+}
+.eventDetailsCell {
+	word-break: keep-all;
+	white-space: nowrap
+}
+.eventDetailsLabel {
+	font-style: italic;
+}
+.FeatureBox {
+	clear: both;
+}

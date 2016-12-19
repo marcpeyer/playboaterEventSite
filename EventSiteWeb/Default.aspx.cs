@@ -84,10 +84,10 @@ namespace kcm.ch.EventSite.Web
 		protected Panel pnlFeature;
 		protected PopupControl EventCategoryFilterPopup;
 
-		protected HtmlTableCell EventDetails_EventUrlLabel;
-		protected HtmlTableCell EventDetails_EventUrlControl;
-		protected HtmlTableRow EventDetails_MinMaxSubscriptions;
-		protected HtmlTableRow EventDetails_EventCategory;
+		protected HtmlGenericControl EventDetails_EventUrl;
+		protected HtmlGenericControl EventDetails_MinSubscriptions;
+		protected HtmlGenericControl EventDetails_MaxSubscriptions;
+		protected HtmlGenericControl EventDetails_EventCategory;
 		
 //		private RiverLevelHandler levelHandler;
 		private DateTime currentDate;
@@ -715,9 +715,9 @@ namespace kcm.ch.EventSite.Web
 			events.Visible = !BLL.Mandator.ShowEventsAsList;
 			eventList.Visible = BLL.Mandator.ShowEventsAsList;
 
-			EventDetails_EventUrlLabel.Visible = BLL.Mandator.UseEventUrl;
-			EventDetails_EventUrlControl.Visible = BLL.Mandator.UseEventUrl;
-			EventDetails_MinMaxSubscriptions.Visible = BLL.Mandator.UseMinMaxSubscriptions;
+			EventDetails_EventUrl.Visible = BLL.Mandator.UseEventUrl;
+			EventDetails_MinSubscriptions.Visible = BLL.Mandator.UseMinMaxSubscriptions;
+			EventDetails_MaxSubscriptions.Visible = BLL.Mandator.UseMinMaxSubscriptions;
 			EventDetails_EventCategory.Visible = BLL.Mandator.UseEventCategories;
 			EventCategoryFilterPopup.Visible = BLL.Mandator.UseEventCategories;
 		}
