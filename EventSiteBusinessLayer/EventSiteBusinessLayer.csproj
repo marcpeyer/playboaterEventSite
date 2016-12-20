@@ -138,6 +138,8 @@
     <Compile Include="MultipleStepsAvoidance.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Notification.cs" />
+    <Compile Include="NotificationStarter.cs" />
     <Compile Include="Simulation.cs">
       <SubType>Code</SubType>
     </Compile>
