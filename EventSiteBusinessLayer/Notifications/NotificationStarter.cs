@@ -1,5 +1,4 @@
 using System;
-using System.Threading;
 using kcm.ch.EventSite.BusinessLayer;
 using kcm.ch.EventSite.Common;
 using Nito.AspNetBackgroundTasks;
@@ -23,8 +22,6 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 				catch (Exception ex)
 				{
 					LoggerManager.GetLogger().ErrorException("Error occured while executing async notification for AddEvent", ex);
-					//TODO: REMOVE THROW
-					throw;
 				}
 			});
 			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
@@ -45,8 +42,6 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 				catch (Exception ex)
 				{
 					LoggerManager.GetLogger().ErrorException("Error occured while executing async notification for EditEvent", ex);
-					//TODO: REMOVE THROW
-					throw;
 				}
 			});
 			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
