@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Index.aspx.cs" Inherits="kcm.ch.EventSite.Web.Index" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/SiteAnonym.Master" CodeBehind="Index.aspx.cs" Inherits="kcm.ch.EventSite.Web.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <title>Playboater's EventSite - Mandanten-Übersicht</title>
     <div>

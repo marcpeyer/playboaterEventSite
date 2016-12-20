@@ -14,6 +14,7 @@ namespace kcm.ch.EventSite.Web
 		protected System.Web.UI.HtmlControls.HtmlGenericControl pageTitle;
 		protected System.Web.UI.WebControls.TextBox LoginBox;
 		protected System.Web.UI.WebControls.TextBox PasswordBox;
+		protected System.Web.UI.WebControls.Label MandatorTitle;
 		protected System.Web.UI.WebControls.Label MandatorLabel;
 		protected System.Web.UI.WebControls.HyperLink RegisterLink;
 		protected System.Web.UI.WebControls.Button LoginButton;
@@ -82,6 +83,7 @@ namespace kcm.ch.EventSite.Web
 
 		private void Login_PreRender(object sender, EventArgs e)
 		{
+			MandatorTitle.Text = BLL.Mandator.MandatorName;
 			MandatorLabel.Text = BLL.Mandator.SiteTitle;
 			RegisterLink.NavigateUrl = "Register.aspx?mid=" + BLL.Mandator.MandatorId;
 		}
