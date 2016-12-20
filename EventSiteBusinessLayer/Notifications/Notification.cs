@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Web;
-using kcm.ch.EventSite.BusinessLayer;
 using kcm.ch.EventSite.Common;
 using playboater.gallery.ClickatellApi;
 using playboater.gallery.commons;
@@ -618,6 +617,7 @@ Thange the subscriptionstate instead.");
 							mailObj.SendMail(sender.Email == null ? mandator.MandatorName : sender.Name,
 							                 sender.Email ?? mandator.MandatorMail, recipient.Email, mailSubject,
 							                 mailBody, EmailMessage.EmailMessageFormat.Html);
+							LoggerManager.GetLogger().Trace("Email sent to <{0}>", recipient.Email);
 						}
 						else
 						{
@@ -654,26 +654,28 @@ Thange the subscriptionstate instead.");
 								wsManager.SendTwoWayMessage(
 									smsBody, new string[] {recipient.MobilePhone},
 									EventSiteConfiguration.Current.ClickatellConfiguration.VirtualMobileNumber, MessageType.SMS_TEXT);
+								LoggerManager.GetLogger().Trace("TwoWay SMS sent to <{0}>", recipient.MobilePhone);
 							}
 							else
 							{
 								wsManager.SendMessage(
 									smsBody, new string[] {recipient.MobilePhone},
 									eventSiteBL.Mandator.MandatorShortName, MessageType.SMS_TEXT);
+								LoggerManager.GetLogger().Trace("SMS sent to <{0}>", recipient.MobilePhone);
 							}
 						}
 						else
 						{
-                            if (EventSiteConfiguration.Current.NotificationConfiguration.UseTwoWayMessaging
-                                && isEventNotification
-                                && recipient.UseTwoWaySms)
-                            {
-                                Simulation.SimulateSms("TWO-WAY\r\n" + smsBody, EventSiteConfiguration.Current.ClickatellConfiguration.VirtualMobileNumber, recipient.MobilePhone);
-                            }
-                            else
-                            {
-                                Simulation.SimulateSms(smsBody, eventSiteBL.Mandator.MandatorShortName, recipient.MobilePhone);
-                            }
+							if (EventSiteConfiguration.Current.NotificationConfiguration.UseTwoWayMessaging
+									&& isEventNotification
+									&& recipient.UseTwoWaySms)
+							{
+									Simulation.SimulateSms("TWO-WAY\r\n" + smsBody, EventSiteConfiguration.Current.ClickatellConfiguration.VirtualMobileNumber, recipient.MobilePhone);
+							}
+							else
+							{
+									Simulation.SimulateSms(smsBody, eventSiteBL.Mandator.MandatorShortName, recipient.MobilePhone);
+							}
 						}
 						if (smsNotifSubscription != null)
 						{
