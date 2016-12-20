@@ -27,6 +27,100 @@ input[type="select"] {
     max-width: 280px;
 }
 
+/* START old version styles */
+TD
+{
+	white-space: nowrap;
+}
+.FeatureBox TD
+{
+	white-space: normal;
+}
+
+#MainContent_notifSubscription
+{
+	BORDER: 1px solid black;
+	PADDING: 3px;
+	MARGIN-TOP: 5px;
+	MARGIN-BOTTOM: 5px;
+	WHITE-SPACE: nowrap;
+	BACKGROUND-COLOR: #eeeeee;
+	FONT-SIZE: X-Small;
+}
+
+#MainContent_pnlEventDetails
+{
+	display: inline-block;
+}
+
+#eventDetails
+{
+}
+
+#eventDetailsCell
+{
+	PADDING: 3px;
+	BORDER: black 1px solid;
+	BACKGROUND-COLOR: #eeeeee;
+}
+
+#eventDetailsTable
+{
+}
+
+.error-message
+{
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 15px;
+	color: #ff0000;
+}
+.dragableBox
+{
+	background-color: #D6D3CE;
+	border-style: outset;
+	border-width: 2px;
+	PADDING: 8px;
+	POSITION: absolute;
+	cursor: move;
+}
+TABLE > TBODY > TR > TD > DIV.smsBox
+{
+	border-color: #424142;
+}
+.dragableBox A
+{
+	 cursor: pointer;
+}
+.smsBox
+{
+	Width: 240px;
+	PADDING-BOTTOM: 1px;
+}
+.smsBox TEXTAREA
+{
+	WIDTH: 218px;
+	HEIGHT: 112px;
+}
+.smsBox TABLE
+{
+	Width: 100%;
+}
+.smsBox TD
+{
+	font-size: 11px;
+}
+.popupBox
+{
+	Width: 240px;
+	PADDING-BOTTOM: 1px;
+}
+.popupBox.DIV,.popupBox.TABLE
+{
+	Width: 100%;
+	background-color: red;
+}
+/* END old version styles */
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .jumbotron {
@@ -64,6 +158,10 @@ input[type="select"] {
 		display: block;
 		overflow-x: scroll;
 	}
+	#MainContent_pnlEventDetails
+	{
+		display: block;
+	}
 }
 @media screen and (min-width: 768px) and (max-width: 991px) {
     .nav > li.shortNav {
@@ -81,43 +179,3 @@ input[type="select"] {
 		max-width: 210px;
 	}
 }
-
-/* START old version styles */
-TD
-{
-	white-space: nowrap;
-}
-.FeatureBox TD
-{
-	white-space: normal;
-}
-
-#MainContent_notifSubscription
-{
-	BORDER: 1px solid black;
-	PADDING: 3px;
-	MARGIN-TOP: 5px;
-	WHITE-SPACE: nowrap;
-	BACKGROUND-COLOR: #eeeeee;
-	FONT-SIZE: X-Small;
-}
-
-#MainContent_pnlEventDetails
-{
-}
-
-#eventDetails
-{
-}
-
-#eventDetailsCell
-{
-	PADDING: 3px;
-	BORDER: black 1px solid;
-	BACKGROUND-COLOR: #eeeeee;
-}
-
-#eventDetailsTable
-{
-}
-/* END old version styles */

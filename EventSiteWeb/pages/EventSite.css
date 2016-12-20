@@ -184,57 +184,7 @@ TD
 	COLOR: #000000;
 	TEXT-ALIGN: center;
 }
-.error-message
-{
-	font-family: Verdana, Arial, Helvetica;
-	font-size: 15px;
-	color: #ff0000;
-}
-.dragableBox
-{
-	background-color: #D6D3CE;
-	border-style: outset;
-	border-width: 2px;
-	PADDING: 8px;
-	POSITION: absolute;
-	cursor: move;
-}
-TABLE > TBODY > TR > TD > DIV.smsBox
-{
-	border-color: #424142;
-}
-.dragableBox A
-{
-	 cursor: pointer;
-}
-.smsBox
-{
-	Width: 240px;
-	PADDING-BOTTOM: 1px;
-}
-.smsBox TEXTAREA
-{
-	WIDTH: 218px;
-	HEIGHT: 112px;
-}
-.smsBox TABLE
-{
-	Width: 100%;
-}
-.smsBox TD
-{
-	font-size: 11px;
-}
-.popupBox
-{
-	Width: 240px;
-	PADDING-BOTTOM: 1px;
-}
-.popupBox.DIV,.popupBox.TABLE
-{
-	Width: 100%;
-	background-color: red;
-}
+
 .MyDetailsCategSetLbl
 {
 	display: block;

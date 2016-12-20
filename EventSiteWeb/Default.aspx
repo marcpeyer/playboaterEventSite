@@ -405,12 +405,6 @@
 				//set to minimum for the scrollwith to mimimize
 				function fResetEventDetailSize()
 				{
-					var container = document.getElementById('pnlEventContainer');
-					var source = document.getElementById('MainContent_pnlEvent');
-					var target = document.getElementById('MainContent_pnlEventDetails');
-					target.style.width = (document.body.clientWidth - source.clientWidth - 35) + 'px';
-					container.style.width = (document.body.clientWidth - 20) + 'px';
-					//alert('reseted');
 					window.setTimeout('fSetEventDetailSize()', 5);
 				}
 				
@@ -420,43 +414,17 @@
 					var target = document.getElementById('MainContent_pnlEventDetails');
 					var source = document.getElementById('MainContent_pnlEvent');
 					
-					var gap;
+					var gap = 30;
 
-					if(!is.ie)
-					{
-						if(is.chrome)
-						{
-							target.style.display = 'inline-block';
-							gap = 27;
-						}
-						else
-						{
-							gap = 24;
-						}
-					}
-					else
-					{
-						gap = 38;
+					var contentMaxWidth = Number($('div.body-content').css('max-width')
+						.substr(0, $('div.body-content').css('max-width').indexOf('p')));
+					if (contentMaxWidth < 768) {
+						gap = 59;
 					}
 
-					target.style.width = (document.body.scrollWidth - source.clientWidth - gap) + 'px';
+					target.style.width = (contentMaxWidth - source.clientWidth - gap) + 'px';
 					container.style.width = (document.body.scrollWidth - 20) + 'px';
-					//alert(window.innerWidth);
-					//alert(window.outerWidth);
-					//alert(document.body.clientWidth);
-					//alert('offset' + document.body.offsetWidth);
-					//alert((document.body.clientWidth - source.clientWidth - gap));
-					
-				}
-				
-				if(!is.ie)
-				{
-					try
-					{
-						//document.getElementById('eventChooser').style.paddingTop = '6px';
-					}
-					catch(e)
-					{};
+					container.style.width = contentMaxWidth + 'px';
 				}
 
 				document.body.onclick = function () { window.setTimeout('HidePopups()', 15); };
