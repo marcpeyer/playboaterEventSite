@@ -3,19 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 using Ajax;
 using kcm.ch.EventSite.BusinessLayer.Notifications;
 using kcm.ch.EventSite.Common;
 using kcm.ch.EventSite.DataAccessLayer;
-using NLog;
 using playboater.gallery.ClickatellApi;
 using playboater.gallery.commons;
 using Constants=kcm.ch.EventSite.Common.Constants;
@@ -711,7 +706,7 @@ Mandant: {2}
 			EventSiteDA.EditEvent(editEvent);
 			if (notifyContacts && Mandator.OnEditEventNotifyContacts)
 			{
-				NotificationStarter.StartAddEventNotification(Mandator.MandatorId, editEvent.EventId);
+				NotificationStarter.StartEditEventNotification(Mandator.MandatorId, editEvent.EventId);
 			}
 			return;
 		}
@@ -764,7 +759,7 @@ Mandant: {2}
 
 			if (Mandator.OnNewSubscriptionNotifyContacts)
 			{
-				StartNotificationProcess(NotificationOperation.AddSubscriptionNotification, subscription.SubscriptionId.ToString());
+				NotificationStarter.StartAddSubscriptionNotification(Mandator.MandatorId, subscription.SubscriptionId);
 			}
 			return subscriptions;
 		}
@@ -783,7 +778,7 @@ Mandant: {2}
 
 			if (Mandator.OnEditSubscriptionNotifyContacts && doNotify)
 			{
-				StartNotificationProcess(NotificationOperation.EditSubscriptionNotification, subscription.SubscriptionId.ToString());
+				NotificationStarter.StartEditSubscriptionNotification(Mandator.MandatorId, subscription.SubscriptionId);
 			}
 			return subscriptions;
 		}
@@ -947,84 +942,6 @@ Mandant: {2}
 			}
 			return String.Join(" ", arguments);
 		}
-
-		//TODO: remove debug code
-		private async Task<bool> SendEmail(string toEmailAddress, string emailSubject, string emailMessage)
-		{
-			var message = new MailMessage();
-			message.To.Add(toEmailAddress);
-
-			message.Subject = emailSubject;
-			message.Body = emailMessage;
-
-			using (var smtpClient = new SmtpClient())
-			{
-				await smtpClient.SendMailAsync(message);
-			}
-			return true;
-		}
-
-		//TODO: remove debug code
-		private async Task PerformNotificationAsync(NotificationOperation operation, string specialArgs)
-		{
-			Logger logger = LoggerManager.GetLogger();
-			logger.Trace("Starting async method PerformNotificationAsync");
-			//var response = await SendEmail("marc@kcm.ch", "test mail", "my body");
-			await Task.Run(() =>
-			{
-				LoggerManager.GetLogger().Trace("sleeping...");
-				Thread.Sleep(4000);
-				LoggerManager.GetLogger().Trace("slept 4s:");
-				Thread.Sleep(4000);
-				LoggerManager.GetLogger().Trace("slept 4s:");
-			});
-			LoggerManager.GetLogger().Trace("async response:");
-			//logger.Trace(response);
-			LoggerManager.GetLogger().Trace("Ending async method PerformNotificationAsync");
-		}
-
-		/// <summary>
-		/// Calls the external notification application with the given parameters.
-		/// </summary>
-		private void StartNotificationProcess(NotificationOperation operation, string specialArgs)
-		{
-			//TODO: migrate!
-
-			LoggerManager.GetLogger().Trace("Starting notification process");
-
-			//NotificationStarter.StartNotification();
-
-			LoggerManager.GetLogger().Trace("Ending notification process start method");
-
-
-			return;
-			
-			string baseArgs = GetNotificationBaseEventArgs();
-
-			string notificationAppPath = Environment.ExpandEnvironmentVariables(EventSiteConfiguration.Current.NotificationConfiguration.NotificationAppPath);
-			LoggerManager.GetLogger().Trace("Starting notification process from this location: {0}", notificationAppPath);
-			
-			string applicationArguments = String.Format("{0} {1} {2}", operation, baseArgs, specialArgs);
-			LoggerManager.GetLogger().Trace("calling notificatin app with this params: {0}", applicationArguments);
-
-			// Create a new process object
-			// dispose the object so that the webrequest doesn't have a reference and
-			// doesn't throw ThreadAbortException therefore.
-			using (Process ProcessObj = new Process())
-			{
-				// StartInfo contains the startup information of the new process
-				ProcessObj.StartInfo.FileName = notificationAppPath;
-				ProcessObj.StartInfo.Arguments = applicationArguments;
-
-				// These two optional flags ensure that no DOS window appears
-				ProcessObj.StartInfo.UseShellExecute = false;
-				ProcessObj.StartInfo.CreateNoWindow = true;
-
-				ProcessObj.Start();
-			}
-
-		}
-
 		#endregion
 
 		#region Helper Methods
@@ -1468,12 +1385,12 @@ Automatisch generierte Nachricht.",
 
 		public void NotifyLiftSave(string action, string definition, Event evnt, Contact contactToNotify, Contact liftContact)
 		{
-			StartNotificationProcess(NotificationOperation.LiftSaveNotification, GetArgumentString(action, definition, evnt.EventId, contactToNotify.ContactId, liftContact.ContactId));
+			NotificationStarter.StartLiftSaveNotification(Mandator.MandatorId, action, definition, evnt.EventId, contactToNotify.ContactId, liftContact.ContactId);
 		}
 
 		public void NofityJourneyChange(Subscription journeySubscription)
 		{
-			StartNotificationProcess(NotificationOperation.JourneyChangeNotification, journeySubscription.SubscriptionId.ToString());
+			NotificationStarter.StartJourneyChangeNotification(Mandator.MandatorId, journeySubscription.SubscriptionId);
 		}
 
 		public void LogSms(SmsNotifSubscription smsNotifSubscription, Type typeToBill)
@@ -1485,16 +1402,5 @@ Automatisch generierte Nachricht.",
 		{
 			EventSiteDA.LogSms(contact, typeToBill);
 		}
-	}
-
-	public enum NotificationOperation
-	{
-		AddEventNotification,
-		EditEventNotification,
-		AddSubscriptionNotification,
-		EditSubscriptionNotification,
-		DelSubscriptionNotification,
-		JourneyChangeNotification,
-		LiftSaveNotification
 	}
 }

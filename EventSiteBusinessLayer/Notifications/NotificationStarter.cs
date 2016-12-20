@@ -1,5 +1,4 @@
 using System;
-using kcm.ch.EventSite.BusinessLayer;
 using kcm.ch.EventSite.Common;
 using Nito.AspNetBackgroundTasks;
 
@@ -15,13 +14,12 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 				try
 				{
 					LoggerManager.GetLogger().Trace("EventSite notifications started.");
-					Notification notification = new Notification(mandatorId.ToString());
-
+					Notification notification = new Notification(mandatorId);
 					notification.BeginAddEventNotification(eventId);
 				}
 				catch (Exception ex)
 				{
-					LoggerManager.GetLogger().ErrorException("Error occured while executing async notification for AddEvent", ex);
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartAddEventNotification)}", ex);
 				}
 			});
 			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
@@ -35,121 +33,110 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 				try
 				{
 					LoggerManager.GetLogger().Trace("EventSite notifications started.");
-					Notification notification = new Notification(mandatorId.ToString());
-
+					Notification notification = new Notification(mandatorId);
 					notification.BeginEditEventNotification(eventId);
 				}
 				catch (Exception ex)
 				{
-					LoggerManager.GetLogger().ErrorException("Error occured while executing async notification for EditEvent", ex);
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartEditEventNotification)}", ex);
 				}
 			});
 			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
 		}
 
-		static void Main(string mandatorId, NotificationOperation operation, int? eventId, int? subscrId, int? journeySubscrId,
-			string action, string definition, int? contactIdToNotify, int? liftContactId)
+		public static void StartAddSubscriptionNotification(string mandatorId, int subscriptionId)
 		{
-			try
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			BackgroundTaskManager.Run(() =>
 			{
-				LoggerManager.GetLogger().Trace("EventSite notifications started.");
-				Notification notification = new Notification(mandatorId);
-
-				switch (operation)
+				try
 				{
-					case NotificationOperation.AddEventNotification:
-						if (eventId.HasValue)
-						{
-							notification.BeginAddEventNotification(eventId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					case NotificationOperation.EditEventNotification:
-						if (eventId.HasValue)
-						{
-							notification.BeginEditEventNotification(eventId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					case NotificationOperation.AddSubscriptionNotification:
-						if(subscrId.HasValue)
-						{
-							notification.BeginAddSubscriptionNotification(subscrId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					case NotificationOperation.EditSubscriptionNotification:
-						if (subscrId.HasValue)
-						{
-							notification.BeginEditSubscriptionNotification(subscrId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					case NotificationOperation.DelSubscriptionNotification:
-						if (subscrId.HasValue)
-						{
-							notification.BeginDelSubscriptionNotification(subscrId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					case NotificationOperation.JourneyChangeNotification:
-						if (journeySubscrId.HasValue)
-						{
-							notification.BeginJourneyChangeNotification(journeySubscrId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					case NotificationOperation.LiftSaveNotification:
-						if(!String.IsNullOrEmpty(action) && !String.IsNullOrEmpty(definition) &&
-							eventId.HasValue && contactIdToNotify.HasValue && liftContactId.HasValue)
-						{
-							notification.BeginLiftSaveNotification(action, definition, eventId.Value, contactIdToNotify.Value, liftContactId.Value);
-						}
-						else
-						{
-							//TODO: HANDLE
-							return;
-						}
-						break;
-					default:
-						throw new NotSupportedException(String.Format("Unknown NotificationOperation given {0}", operation));
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId);
+					notification.BeginAddSubscriptionNotification(subscriptionId);
 				}
-			}
-			catch(Exception ex)
-			{
-				LoggerManager.GetLogger().ErrorException("Exception occured in EventSiteNotifications NotificationStarter.cs:", ex);
-				Console.WriteLine("Exception occured in EventSiteNotifications NotificationStarter.cs: {0}", ex);
-			}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartAddSubscriptionNotification)}", ex);
+				}
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
 		}
 
-		private static void HandleExtendedParameterParsingError(Exception ex)
+		public static void StartEditSubscriptionNotification(string mandatorId, int subscriptionId)
 		{
-			Console.WriteLine("following error occured while parsing extended parameters: {0}", ex);
-			LoggerManager.GetLogger().Error("following error occured while parsing extended parameters: {0}", ex);
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			BackgroundTaskManager.Run(() =>
+			{
+				try
+				{
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId);
+					notification.BeginEditSubscriptionNotification(subscriptionId);
+				}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartEditSubscriptionNotification)}", ex);
+				}
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
+		}
+
+		public static void StartDelSubscriptionNotification(string mandatorId, int subscriptionId)
+		{
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			BackgroundTaskManager.Run(() =>
+			{
+				try
+				{
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId);
+					notification.BeginDelSubscriptionNotification(subscriptionId);
+				}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartDelSubscriptionNotification)}", ex);
+				}
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
+		}
+
+		public static void StartJourneyChangeNotification(string mandatorId, int journeySubscriptionId)
+		{
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			BackgroundTaskManager.Run(() =>
+			{
+				try
+				{
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId);
+					notification.BeginJourneyChangeNotification(journeySubscriptionId);
+				}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartJourneyChangeNotification)}", ex);
+				}
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
+		}
+
+		public static void StartLiftSaveNotification(string mandatorId, string action, string definition, int eventId, int contactIdToNotify, int liftContactId)
+		{
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			BackgroundTaskManager.Run(() =>
+			{
+				try
+				{
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId);
+					notification.BeginLiftSaveNotification(action, definition, eventId, contactIdToNotify, liftContactId);
+				}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException($"Error occured while executing async notification for {nameof(StartLiftSaveNotification)}", ex);
+				}
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
 		}
 	}
 }
