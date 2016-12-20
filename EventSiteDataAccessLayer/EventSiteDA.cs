@@ -30,6 +30,85 @@ namespace kcm.ch.EventSite.DataAccessLayer
 
 		#region Mandator methods
 		/// <summary>
+		/// Lists all mandators in the database.
+		/// </summary>
+		/// <returns>Returns a list of each <see cref="Mandator">Mandator</see> in the db.</returns>
+		public static List<Mandator> ListMandators()
+		{
+			List<Mandator> mandators = new List<Mandator>();
+
+			/*mandators.Add(new Mandator("1", "name 1", "short 1", "mail@mail", "www entry", "", "", null, null, null,
+				false, true, false, false, false, false, false, false, false, false, false, false, false, null, null, null,
+				0, 0, false, false, null, null, null, null));
+			mandators.Add(new Mandator("2", "name 2", "short 2", "mail@mail", "www entry", "", "", null, null, null,
+				false, true, false, false, false, false, false, false, false, false, false, false, false, null, null, null,
+				0, 0, false, false, null, null, null, null));
+			mandators.Add(new Mandator("3", "name 3", "short 3", "mail@mail", "www entry", "", "", null, null, null,
+				false, true, false, false, false, false, false, false, false, false, false, false, false, null, null, null,
+				0, 0, false, false, null, null, null, null));
+			return mandators;*/
+
+			using (StoredProcedure sp = new StoredProcedure(connectionString, "ES_ListMandators"))
+			{
+				SqlDataReader data = sp.ExecuteDataReader();
+
+				while (data.Read())
+				{
+					Mandator mandator = new Mandator(
+						pbHelpers.GetString(data, "MandatorId"),
+						pbHelpers.GetString(data, "MandatorName"),
+						pbHelpers.GetString(data, "MandatorShortName"),
+						pbHelpers.GetString(data, "MandatorMail"),
+						pbHelpers.GetString(data, "EntryPointUrl"),
+						pbHelpers.GetString(data, "SiteTitle"),
+						pbHelpers.GetString(data, "EventName"),
+						pbHelpers.GetString(data, "FeatureAssembly"),
+						pbHelpers.GetString(data, "FeatureAssemblyClassName"),
+						pbHelpers.GetString(data, "EventNotificationAddressesDefault"),
+						pbHelpers.GetBool(data, "ShowEventsAsList"),
+						pbHelpers.GetBool(data, "UseEventCategories"),
+						pbHelpers.GetBool(data, "UseEventUrl"),
+						pbHelpers.GetBool(data, "UseMinMaxSubscriptions"),
+						pbHelpers.GetBool(data, "UseSubscriptions"),
+						pbHelpers.GetBool(data, "SmsNotifications"),
+						pbHelpers.GetBool(data, "OnNewEventNotifyContacts"),
+						pbHelpers.GetBool(data, "OnEditEventNotifyContacts"),
+						pbHelpers.GetBool(data, "OnNewSubscriptionNotifyContacts"),
+						pbHelpers.GetBool(data, "OnEditSubscriptionNotifyContacts"),
+						pbHelpers.GetBool(data, "OnDeleteSubscriptionNotifyContacts"),
+						pbHelpers.GetBool(data, "IsLiftManagementEnabled"),
+						pbHelpers.GetBool(data, "NotifyDeletableSubscriptionStates"),
+						pbHelpers.GetString(data, "HelpText"),
+						pbHelpers.GetNInt32(data, "UnsubscribeAllowedFromNumSubscriptions"),
+						pbHelpers.GetNInt32(data, "UnsubscribeAllowedTillNumSubscriptions"),
+						pbHelpers.GetInt32(data, "SmsLog"),
+						pbHelpers.GetInt32(data, "SmsPurchased"),
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetBool(data, "UseExternalAuth"),
+						pbHelpers.GetString(data, "AuthTable"),
+						pbHelpers.GetString(data, "AuthIdColumn"),
+						pbHelpers.GetString(data, "AuthLoginColumn"),
+						pbHelpers.GetString(data, "AuthPasswordColumn"));
+							
+					mandators.Add(mandator);
+				}
+
+				data.Close();
+
+				int retVal = -1;
+				retVal = sp.ReturnValue;
+				switch (retVal)
+				{
+					case 0:
+						//all ok
+						return mandators;
+					default:
+						throw new EventSiteException("Unbekannter ReturnValue nach dem Selektieren der Daten", 900);
+				}
+			}
+		}
+
+		/// <summary>
 		/// Gets an existing mandator from the database.
 		/// </summary>
 		/// <param name="mandatorId">Mandator's id</param>
@@ -219,7 +298,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 							pbHelpers.GetInt32(data, "SmsLog"),
 							pbHelpers.GetInt32(data, "SmsPurchased"),
 							pbHelpers.GetBool(data, "IsDeleted"),
-							pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+							pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+							pbHelpers.GetString(data, "Login"));
 					}
 					catch(Exception e)
 					{
@@ -317,7 +397,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 							pbHelpers.GetInt32(data, "SmsLog"),
 							pbHelpers.GetInt32(data, "SmsPurchased"),
 							pbHelpers.GetBool(data, "IsDeleted"),
-							pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+							pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+							pbHelpers.GetString(data, "Login"));
 					}
 					catch(Exception e)
 					{
@@ -408,6 +489,28 @@ namespace kcm.ch.EventSite.DataAccessLayer
 			}
 		}
 
+		public static string GetPassword(int contactId)
+		{
+			int retVal = -1;
+			using (StoredProcedure sp = new StoredProcedure(connectionString, "ES_GetPassword"))
+			{
+				sp.AddParameter("@ContactId", SqlDbType.Int, contactId);
+				string pw = sp.ExecuteScalar() as string;
+				retVal = sp.ReturnValue;
+
+				switch (retVal)
+				{
+					case 100:
+						throw new EventSiteException("Die angegebene ContactId wurde nicht gefunden. Evtl. wurde der Kontakt inzwischen gelöscht.", 100);
+					case 0:
+						//all ok
+						return pw;
+					default:
+						throw new EventSiteException("Unbekannter ReturnValue beim lesen des Logins", 900);
+				}
+			}
+		}
+
 		/// <summary>
 		/// Gets an existing contact from the database.
 		/// </summary>
@@ -437,7 +540,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 				}
 
 				data.Close();
@@ -497,7 +601,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 				}
 
 				data.Close();
@@ -608,7 +713,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 				}
 
 				data.Close();
@@ -774,7 +880,8 @@ namespace kcm.ch.EventSite.DataAccessLayer
 						pbHelpers.GetInt32(data, "SmsLog"),
 						pbHelpers.GetInt32(data, "SmsPurchased"),
 						pbHelpers.GetBool(data, "IsDeleted"),
-						pbHelpers.GetBool(data, "NoSmsCreditNotified"));
+						pbHelpers.GetBool(data, "NoSmsCreditNotified"),
+						pbHelpers.GetString(data, "Login"));
 
 					contacts.Add(contact);
 				}

@@ -69,6 +69,10 @@ namespace kcm.ch.EventSite.BusinessLayer
 		{
 			return EventSiteDA.GetMandator(EventSiteConfiguration.Current.DefaultMandatorId);
 		}
+		public static List<Mandator> GetAllMandators()
+		{
+			return EventSiteDA.ListMandators();
+		}
 
 		public void RenewCurrentContact()
 		{
@@ -475,6 +479,38 @@ Mandant: {2}
 		public void ChangePassword(Contact contact, string newLogin, string newPassword)
 		{
 			EventSiteDA.ChangePassword(contact.ContactId, newLogin, newPassword);
+		}
+
+		public bool SendPassword(Contact contact)
+		{
+			try
+			{
+				string password = EventSiteDA.GetPassword(contact.ContactId);
+
+				bool smtpUseSSL = EventSiteConfiguration.Current.MailConfiguration.UseSSL;
+				string smtpServer = EventSiteConfiguration.Current.MailConfiguration.SmtpServer;
+				int smtpPort = EventSiteConfiguration.Current.MailConfiguration.SmtpPort;
+				string smtpUser = EventSiteConfiguration.Current.MailConfiguration.SmtpUser;
+				string smtpPass = EventSiteConfiguration.Current.MailConfiguration.SmtpPass;
+				bool sendSmsOn = EventSiteConfiguration.Current.NotificationConfiguration.SendSmsOn;
+				bool offlineMode = EventSiteConfiguration.Current.OfflineMode;
+
+				EmailMessage mailObj = (!String.IsNullOrEmpty(smtpPass)
+																? new EmailMessage(smtpServer, smtpUseSSL, smtpPort, smtpUser, smtpPass)
+																: new EmailMessage(smtpServer));
+
+				string mailSubject = "Passwort für EventSite";
+				string mailBody = String.Format(@"<p>Die Login-Daten für die EventSite (Mandant '{0}') wurden angefordert.</p>
+<p>Login: <b>{1}</b><br>Passwort: <b>{2}</b></p>", contact.Mandator.MandatorName, contact.Login, password);
+				mailObj.SendMail(contact.Mandator.MandatorMail, contact.Email, mailSubject,
+												 mailBody, EmailMessage.EmailMessageFormat.Html);
+			}
+			catch(Exception ex)
+			{
+				LoggerManager.GetLogger().ErrorException("Error while sending password email.", ex);
+				return false;
+			}
+			return true;
 		}
 
 		public ArrayList ListContacts()
@@ -912,6 +948,8 @@ Mandant: {2}
 		/// </summary>
 		private void StartNotificationProcess(NotificationOperation operation, string specialArgs)
 		{
+			//TODO: migrate!
+			return;
 			LoggerManager.GetLogger().Trace("StartNotificationProcess() begin");
 			
 			string baseArgs = GetNotificationBaseEventArgs();

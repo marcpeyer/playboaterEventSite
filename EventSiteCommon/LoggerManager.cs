@@ -4,6 +4,7 @@ using NLog;
 using NLog.Config;
 using System.Xml;
 using System.IO;
+using System;
 
 namespace kcm.ch.EventSite.Common
 {
@@ -30,8 +31,9 @@ namespace kcm.ch.EventSite.Common
 				_logFactory = new LogFactory(GetXmlConfiguration());
 				return true;
 			}
-			catch
+			catch(Exception ex)
 			{
+        Debug.Write(ex.ToString());
 				return false;
 			}
 		}

@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteRemoting", "EventS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteNotifications", "EventSiteNotifications\EventSiteNotifications.csproj", "{B208F673-5B98-4699-9303-676B7E4503EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSiteWeb", "EventSiteWeb\EventSiteWeb.csproj", "{C2BF24FB-45C7-4013-ABBF-86FBFE9B5EC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{B208F673-5B98-4699-9303-676B7E4503EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B208F673-5B98-4699-9303-676B7E4503EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B208F673-5B98-4699-9303-676B7E4503EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2BF24FB-45C7-4013-ABBF-86FBFE9B5EC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2BF24FB-45C7-4013-ABBF-86FBFE9B5EC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2BF24FB-45C7-4013-ABBF-86FBFE9B5EC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2BF24FB-45C7-4013-ABBF-86FBFE9B5EC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

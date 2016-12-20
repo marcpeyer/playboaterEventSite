@@ -10,7 +10,7 @@ namespace kcm.ch.EventSite.Common
 	[Serializable]
 	public class Contact : IComparable
 	{
-		public Contact(int contactId, Mandator mandator, string name, string email, string mobilePhone, bool liftMgmtSmsOn, bool eventMgmtSmsOn, bool useTwoWaySms, int smsLog, int smsPurchased, bool isDeleted, bool noSmsCreditNotified)
+		public Contact(int contactId, Mandator mandator, string name, string email, string mobilePhone, bool liftMgmtSmsOn, bool eventMgmtSmsOn, bool useTwoWaySms, int smsLog, int smsPurchased, bool isDeleted, bool noSmsCreditNotified, string login)
 		{
 			ContactId = contactId;
 			Mandator = mandator;
@@ -24,9 +24,10 @@ namespace kcm.ch.EventSite.Common
 			SmsPurchased = smsPurchased;
 			IsDeleted = isDeleted;
 			NoSmsCreditNotified = noSmsCreditNotified;
+			Login = login;
 		}
 
-		public Contact(Mandator mandator, string name, string email, string mobilePhone, bool liftMgmtSmsOn, bool eventMgmtSmsOn, bool useTwoWaySms, int smsLog, int smsPurchased, bool noSmsCreditNotified)
+		public Contact(Mandator mandator, string name, string email, string mobilePhone, bool liftMgmtSmsOn, bool eventMgmtSmsOn, bool useTwoWaySms, int smsLog, int smsPurchased, bool noSmsCreditNotified, string login)
 		{
 			ContactId = 0;
 			Mandator = mandator;
@@ -40,6 +41,7 @@ namespace kcm.ch.EventSite.Common
 			SmsPurchased = smsPurchased;
 			IsDeleted = false;
 			NoSmsCreditNotified = noSmsCreditNotified;
+			Login = login;
 		}
 
 		public Contact()
@@ -137,6 +139,16 @@ namespace kcm.ch.EventSite.Common
 			}
 		}
 		private string email;
+
+		public string Login
+		{
+			get { return login; }
+			set
+			{
+				login = (value == null ? null : value.Trim());
+			}
+		}
+		private string login;
 
 		public string MobilePhone
 		{

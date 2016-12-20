@@ -139,123 +139,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="About.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="AccessDenied.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Contacts.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Default.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="EventDetails.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Events.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
     <Content Include="Global.asax">
     </Content>
     <Content Include="Help.aspx">
       <SubType>ASPXCodeBehind</SubType>
     </Content>
-    <Content Include="images\datepicker\cal_background.jpg" />
-    <Content Include="images\datepicker\close_button.gif" />
-    <Content Include="images\datepicker\Dropdownbtn.gif" />
-    <Content Include="images\datepicker\spinner.gif" />
-    <Content Include="images\icons\arrow_down.gif" />
-    <Content Include="images\icons\arrow_up.gif" />
-    <Content Include="images\icons\car_drives.gif" />
-    <Content Include="images\icons\car_full.gif" />
-    <Content Include="images\icons\car_lift.gif" />
-    <Content Include="images\icons\car_undefined.gif" />
-    <Content Include="images\icons\checked.gif" />
-    <Content Include="images\icons\copy.gif" />
-    <Content Include="images\icons\copy_inactive.gif" />
-    <Content Include="images\icons\delete.gif" />
-    <Content Include="images\icons\edit.png" />
-    <Content Include="images\icons\filter_off.gif" />
-    <Content Include="images\icons\filter_on.gif" />
-    <Content Include="images\icons\mobile.gif" />
-    <Content Include="images\icons\mobile_only.gif" />
-    <Content Include="images\icons\new.gif" />
-    <Content Include="images\icons\none.gif" />
-    <Content Include="images\icons\refresh.gif" />
-    <Content Include="images\icons\show_new.gif" />
-    <Content Include="images\icons\show_old.gif" />
-    <Content Include="Journey.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Lift.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="Locations.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="Login.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="MaintenanceMode.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="modules\AJAXDatePickerControl.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="modules\ContactControl.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="modules\Navigation.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="modules\PopupControl.ascx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="MyDetails.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="pages\BrowserCheck.js" />
-    <Content Include="pages\DatePicker.css" />
-    <Content Include="pages\EventSite.css" />
-    <Content Include="pages\EventSiteCommons.js" />
-    <Content Include="Register.aspx">
-      <SubType>ASPXCodeBehind</SubType>
-    </Content>
-    <Content Include="RemoteLogin.aspx">
-      <SubType>Form</SubType>
-    </Content>
-    <Content Include="UnsubscribeMailingList.aspx">
-      <SubType>Form</SubType>
-    </Content>
     <Content Include="Web.config" />
-    <Compile Include="About.aspx.cs">
-      <DependentUpon>About.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AccessDenied.aspx.cs">
-      <DependentUpon>AccessDenied.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="AssemblyInfo.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Contacts.aspx.cs">
-      <DependentUpon>Contacts.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EventDetails.aspx.cs">
-      <DependentUpon>EventDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Events.aspx.cs">
-      <DependentUpon>Events.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -265,146 +156,12 @@
       <DependentUpon>Help.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Journey.aspx.cs">
-      <DependentUpon>Journey.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Lift.aspx.cs">
-      <DependentUpon>Lift.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Locations.aspx.cs">
-      <DependentUpon>Locations.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MaintenanceMode.aspx.cs">
-      <DependentUpon>MaintenanceMode.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modules\AJAXDatePickerControl.ascx.cs">
-      <DependentUpon>AJAXDatePickerControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modules\ContactControl.ascx.cs">
-      <DependentUpon>ContactControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modules\DragableControl.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modules\Navigation.ascx.cs">
-      <DependentUpon>Navigation.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="modules\PopupControl.ascx.cs">
-      <DependentUpon>PopupControl.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MyDetails.aspx.cs">
-      <DependentUpon>MyDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="PageBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RemoteLogin.aspx.cs">
-      <DependentUpon>RemoteLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UnsubscribeMailingList.aspx.cs">
-      <DependentUpon>UnsubscribeMailingList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <EmbeddedResource Include="About.aspx.resx">
-      <DependentUpon>About.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AccessDenied.aspx.resx">
-      <DependentUpon>AccessDenied.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Contacts.aspx.resx">
-      <DependentUpon>Contacts.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Default.aspx.resx">
-      <DependentUpon>Default.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EventDetails.aspx.resx">
-      <DependentUpon>EventDetails.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Events.aspx.resx">
-      <DependentUpon>Events.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Global.asax.resx">
       <DependentUpon>Global.asax.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Help.aspx.resx">
       <DependentUpon>Help.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Journey.aspx.resx">
-      <DependentUpon>Journey.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Lift.aspx.resx">
-      <DependentUpon>Lift.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locations.aspx.resx">
-      <DependentUpon>Locations.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.aspx.resx">
-      <DependentUpon>Login.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MaintenanceMode.aspx.resx">
-      <DependentUpon>MaintenanceMode.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="modules\AJAXDatePickerControl.ascx.resx">
-      <DependentUpon>AJAXDatePickerControl.ascx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="modules\ContactControl.ascx.resx">
-      <DependentUpon>ContactControl.ascx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="modules\Navigation.ascx.resx">
-      <DependentUpon>Navigation.ascx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="modules\PopupControl.ascx.resx">
-      <DependentUpon>PopupControl.ascx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MyDetails.aspx.resx">
-      <DependentUpon>MyDetails.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Register.aspx.resx">
-      <DependentUpon>Register.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="RemoteLogin.aspx.resx">
-      <DependentUpon>RemoteLogin.aspx.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UnsubscribeMailingList.aspx.resx">
-      <DependentUpon>UnsubscribeMailingList.aspx.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
