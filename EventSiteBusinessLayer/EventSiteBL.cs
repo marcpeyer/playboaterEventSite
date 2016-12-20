@@ -4,13 +4,17 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 using Ajax;
 using kcm.ch.EventSite.Common;
 using kcm.ch.EventSite.DataAccessLayer;
+using NLog;
 using playboater.gallery.ClickatellApi;
 using playboater.gallery.commons;
 using Constants=kcm.ch.EventSite.Common.Constants;
@@ -943,12 +947,40 @@ Mandant: {2}
 			return String.Join(" ", arguments);
 		}
 
+		private async Task<bool> SendEmail(string toEmailAddress, string emailSubject, string emailMessage)
+		{
+			var message = new MailMessage();
+			message.To.Add(toEmailAddress);
+
+			message.Subject = emailSubject;
+			message.Body = emailMessage;
+
+			using (var smtpClient = new SmtpClient())
+			{
+				await smtpClient.SendMailAsync(message);
+			}
+			return true;
+		}
+		private async Task PerformNotificationAsync(NotificationOperation operation, string specialArgs)
+		{
+			//var response = await SendEmail("marc@kcm.ch", "test mail", "my body");
+			
+			Logger logger = LoggerManager.GetLogger();
+			logger.Trace("async response:");
+			//logger.Trace(response);
+		}
+
 		/// <summary>
 		/// Calls the external notification application with the given parameters.
 		/// </summary>
 		private void StartNotificationProcess(NotificationOperation operation, string specialArgs)
 		{
 			//TODO: migrate!
+
+			PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
+			LoggerManager.GetLogger().Trace("here");
+
+
 			return;
 			LoggerManager.GetLogger().Trace("StartNotificationProcess() begin");
 			
