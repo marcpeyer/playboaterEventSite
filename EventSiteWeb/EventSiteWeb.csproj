@@ -273,6 +273,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="SiteAnonym.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -371,6 +372,13 @@
     <Compile Include="SendPass.aspx.cs">
       <DependentUpon>SendPass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteAnonym.Master.cs">
+      <DependentUpon>SiteAnonym.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteAnonym.Master.designer.cs">
+      <DependentUpon>SiteAnonym.Master</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
