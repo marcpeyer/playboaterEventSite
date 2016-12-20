@@ -1,11 +1,28 @@
 using System;
+using System.Threading;
 using kcm.ch.EventSite.BusinessLayer;
 using kcm.ch.EventSite.Common;
+using Nito.AspNetBackgroundTasks;
 
-namespace kcm.ch.EventSite.Notifications
+namespace kcm.ch.EventSite.BusinessLayer.Notifications
 {
-	public class Program
+	public static class NotificationStarter
 	{
+		public static void StartNotification()
+		{
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			//PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
+			BackgroundTaskManager.Run(() =>
+			{
+				LoggerManager.GetLogger().Trace("sleeping...");
+				Thread.Sleep(4000);
+				LoggerManager.GetLogger().Trace("slept 4s:");
+				Thread.Sleep(4000);
+				LoggerManager.GetLogger().Trace("slept 4s:");
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
+
+		}
 		static void Main(string[] args)
 		{
 			try
@@ -150,8 +167,8 @@ namespace kcm.ch.EventSite.Notifications
 			}
 			catch(Exception ex)
 			{
-				LoggerManager.GetLogger().ErrorException("Exception occured in EventSiteNotifications Program.cs:", ex);
-				Console.WriteLine("Exception occured in EventSiteNotifications Program.cs: {0}", ex);
+				LoggerManager.GetLogger().ErrorException("Exception occured in EventSiteNotifications NotificationStarter.cs:", ex);
+				Console.WriteLine("Exception occured in EventSiteNotifications NotificationStarter.cs: {0}", ex);
 			}
 		}
 

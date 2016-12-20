@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 using Ajax;
+using kcm.ch.EventSite.BusinessLayer.Notifications;
 using kcm.ch.EventSite.Common;
 using kcm.ch.EventSite.DataAccessLayer;
 using NLog;
@@ -988,7 +989,7 @@ Mandant: {2}
 
 			LoggerManager.GetLogger().Trace("Calling async method PerformNotificationAsync()");
 			//PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
-			//NotificationStarter
+			NotificationStarter.StartNotification();
 			LoggerManager.GetLogger().Trace("Called async method PerformNotificationAsync()");
 
 

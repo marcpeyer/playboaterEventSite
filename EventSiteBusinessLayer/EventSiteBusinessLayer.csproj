@@ -142,8 +142,8 @@
     <Compile Include="MultipleStepsAvoidance.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Notification.cs" />
-    <Compile Include="NotificationStarter.cs" />
+    <Compile Include="Notifications\Notification.cs" />
+    <Compile Include="Notifications\NotificationStarter.cs" />
     <Compile Include="Simulation.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -152,6 +152,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

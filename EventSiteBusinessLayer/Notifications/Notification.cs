@@ -7,7 +7,7 @@ using kcm.ch.EventSite.Common;
 using playboater.gallery.ClickatellApi;
 using playboater.gallery.commons;
 
-namespace kcm.ch.EventSite.Notifications
+namespace kcm.ch.EventSite.BusinessLayer.Notifications
 {
 	/// <summary>
 	/// Summary description for Notification.
