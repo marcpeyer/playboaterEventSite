@@ -948,6 +948,7 @@ Mandant: {2}
 			return String.Join(" ", arguments);
 		}
 
+		//TODO: remove debug code
 		private async Task<bool> SendEmail(string toEmailAddress, string emailSubject, string emailMessage)
 		{
 			var message = new MailMessage();
@@ -962,6 +963,8 @@ Mandant: {2}
 			}
 			return true;
 		}
+
+		//TODO: remove debug code
 		private async Task PerformNotificationAsync(NotificationOperation operation, string specialArgs)
 		{
 			Logger logger = LoggerManager.GetLogger();
@@ -987,14 +990,14 @@ Mandant: {2}
 		{
 			//TODO: migrate!
 
-			LoggerManager.GetLogger().Trace("Calling async method PerformNotificationAsync()");
-			//PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
+			LoggerManager.GetLogger().Trace("Starting notification process");
+
 			NotificationStarter.StartNotification();
-			LoggerManager.GetLogger().Trace("Called async method PerformNotificationAsync()");
+
+			LoggerManager.GetLogger().Trace("Ending notification process start method");
 
 
 			return;
-			LoggerManager.GetLogger().Trace("StartNotificationProcess() begin");
 			
 			string baseArgs = GetNotificationBaseEventArgs();
 
@@ -1020,7 +1023,6 @@ Mandant: {2}
 				ProcessObj.Start();
 			}
 
-			LoggerManager.GetLogger().Trace("StartNotificationProcess() end");
 		}
 
 		#endregion

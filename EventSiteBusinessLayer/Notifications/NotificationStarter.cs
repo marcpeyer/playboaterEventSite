@@ -23,7 +23,8 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
 
 		}
-		static void Main(string[] args)
+		static void Main(string mandatorId, NotificationOperation operation, int? eventId, int? subscrId, int? journeySubscrId,
+			string action, string definition, int? contactIdToNotify, int? liftContactId)
 		{
 			try
 			{
@@ -38,128 +39,88 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 					return;
 				}
 
-				NotificationOperation operation;
-				string mandatorId;
-
-				try
-				{
-					mandatorId = args[1];
-					ConfigurationLoader.Mid = mandatorId.Trim();
-
-					//ConfigurationLoader mandator set. LoggerManager should get correcto xml config now
-					LoggerManager.GetLogger().Trace("EventSiteNotifications app started.");
-
-					operation = (NotificationOperation)Enum.Parse(typeof(NotificationOperation), args[0]);
-				}
-				catch (Exception ex)
-				{
-					LoggerManager.GetLogger().ErrorException("an error occcured while parsing parameters", ex);
-					Console.WriteLine("following error occcured while parsing parameters: {0}", ex);
-					return;
-				}
-
+				LoggerManager.GetLogger().Trace("EventSite notifications started.");
 				Notification notification = new Notification(mandatorId);
 
 				switch (operation)
 				{
 					case NotificationOperation.AddEventNotification:
-						int addEventId;
-						try
+						if (eventId.HasValue)
 						{
-							addEventId = Int32.Parse(args[baseArgumentsLength]);
+							notification.BeginAddEventNotification(eventId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginAddEventNotification(addEventId);
 						break;
 					case NotificationOperation.EditEventNotification:
-						int editEventId;
-						try
+						if (eventId.HasValue)
 						{
-							editEventId = Int32.Parse(args[baseArgumentsLength]);
+							notification.BeginEditEventNotification(eventId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginEditEventNotification(editEventId);
 						break;
 					case NotificationOperation.AddSubscriptionNotification:
-						int addSubscrId;
-						try
+						if(subscrId.HasValue)
 						{
-							addSubscrId = Int32.Parse(args[baseArgumentsLength]);
+							notification.BeginAddSubscriptionNotification(subscrId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginAddSubscriptionNotification(addSubscrId);
 						break;
 					case NotificationOperation.EditSubscriptionNotification:
-						int editSubscrId;
-						try
+						if (subscrId.HasValue)
 						{
-							editSubscrId = Int32.Parse(args[baseArgumentsLength]);
+							notification.BeginEditSubscriptionNotification(subscrId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginEditSubscriptionNotification(editSubscrId);
 						break;
 					case NotificationOperation.DelSubscriptionNotification:
-						int delSubscrId;
-						try
+						if (subscrId.HasValue)
 						{
-							delSubscrId = Int32.Parse(args[baseArgumentsLength]);
+							notification.BeginDelSubscriptionNotification(subscrId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginDelSubscriptionNotification(delSubscrId);
 						break;
 					case NotificationOperation.JourneyChangeNotification:
-						int journeySubscrId;
-						try
+						if (journeySubscrId.HasValue)
 						{
-							journeySubscrId = Int32.Parse(args[baseArgumentsLength]);
+							notification.BeginJourneyChangeNotification(journeySubscrId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginJourneyChangeNotification(journeySubscrId);
 						break;
 					case NotificationOperation.LiftSaveNotification:
-						string action;
-						string definition;
-						int eventId;
-						int contactIdToNotify;
-						int liftContactId;
-						try
+						if(!String.IsNullOrEmpty(action) && !String.IsNullOrEmpty(definition) &&
+							eventId.HasValue && contactIdToNotify.HasValue && liftContactId.HasValue)
 						{
-							action = args[baseArgumentsLength];
-							definition = args[baseArgumentsLength + 1];
-							eventId = Int32.Parse(args[baseArgumentsLength + 2]);
-							contactIdToNotify = Int32.Parse(args[baseArgumentsLength + 3]);
-							liftContactId = Int32.Parse(args[baseArgumentsLength + 4]);
+							notification.BeginLiftSaveNotification(action, definition, eventId.Value, contactIdToNotify.Value, liftContactId.Value);
 						}
-						catch (Exception ex)
+						else
 						{
-							HandleExtendedParameterParsingError(ex);
+							//TODO: HANDLE
 							return;
 						}
-						notification.BeginLiftSaveNotification(action, definition, eventId, contactIdToNotify, liftContactId);
 						break;
 					default:
 						throw new NotSupportedException(String.Format("Unknown NotificationOperation given {0}", operation));
