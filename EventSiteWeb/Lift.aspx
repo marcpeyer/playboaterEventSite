@@ -17,7 +17,7 @@
 			{
 				try
 				{
-					opener.document.getElementById('refreshEventButton').click();
+					opener.document.getElementById('MainContent_refreshEventButton').click();
 					//opener.__doPostBack('refreshEventButton','');
 				}
 				catch(ex)

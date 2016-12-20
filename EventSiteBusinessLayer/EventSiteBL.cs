@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
 using System.Web.Security;
 using Ajax;
+using kcm.ch.EventSite.BusinessLayer.Notifications;
 using kcm.ch.EventSite.Common;
 using kcm.ch.EventSite.DataAccessLayer;
 using playboater.gallery.ClickatellApi;
@@ -696,7 +696,7 @@ Mandant: {2}
 
 			if (Mandator.OnNewEventNotifyContacts)
 			{
-				StartNotificationProcess(NotificationOperation.AddEventNotification, newEvent.EventId.ToString());
+				NotificationStarter.StartAddEventNotification(Mandator.MandatorId, newEvent.EventId);
 			}
 			return;
 		}
@@ -706,7 +706,7 @@ Mandant: {2}
 			EventSiteDA.EditEvent(editEvent);
 			if (notifyContacts && Mandator.OnEditEventNotifyContacts)
 			{
-				StartNotificationProcess(NotificationOperation.EditEventNotification, editEvent.EventId.ToString());
+				NotificationStarter.StartEditEventNotification(Mandator.MandatorId, editEvent.EventId);
 			}
 			return;
 		}
@@ -759,7 +759,7 @@ Mandant: {2}
 
 			if (Mandator.OnNewSubscriptionNotifyContacts)
 			{
-				StartNotificationProcess(NotificationOperation.AddSubscriptionNotification, subscription.SubscriptionId.ToString());
+				NotificationStarter.StartAddSubscriptionNotification(Mandator.MandatorId, subscription.SubscriptionId);
 			}
 			return subscriptions;
 		}
@@ -778,7 +778,7 @@ Mandant: {2}
 
 			if (Mandator.OnEditSubscriptionNotifyContacts && doNotify)
 			{
-				StartNotificationProcess(NotificationOperation.EditSubscriptionNotification, subscription.SubscriptionId.ToString());
+				NotificationStarter.StartEditSubscriptionNotification(Mandator.MandatorId, subscription.SubscriptionId);
 			}
 			return subscriptions;
 		}
@@ -942,43 +942,6 @@ Mandant: {2}
 			}
 			return String.Join(" ", arguments);
 		}
-
-		/// <summary>
-		/// Calls the external notification application with the given parameters.
-		/// </summary>
-		private void StartNotificationProcess(NotificationOperation operation, string specialArgs)
-		{
-			//TODO: migrate!
-			return;
-			LoggerManager.GetLogger().Trace("StartNotificationProcess() begin");
-			
-			string baseArgs = GetNotificationBaseEventArgs();
-
-			string notificationAppPath = Environment.ExpandEnvironmentVariables(EventSiteConfiguration.Current.NotificationConfiguration.NotificationAppPath);
-			LoggerManager.GetLogger().Trace("Starting notification process from this location: {0}", notificationAppPath);
-			
-			string applicationArguments = String.Format("{0} {1} {2}", operation, baseArgs, specialArgs);
-			LoggerManager.GetLogger().Trace("calling notificatin app with this params: {0}", applicationArguments);
-
-			// Create a new process object
-			// dispose the object so that the webrequest doesn't have a reference and
-			// doesn't throw ThreadAbortException therefore.
-			using (Process ProcessObj = new Process())
-			{
-				// StartInfo contains the startup information of the new process
-				ProcessObj.StartInfo.FileName = notificationAppPath;
-				ProcessObj.StartInfo.Arguments = applicationArguments;
-
-				// These two optional flags ensure that no DOS window appears
-				ProcessObj.StartInfo.UseShellExecute = false;
-				ProcessObj.StartInfo.CreateNoWindow = true;
-
-				ProcessObj.Start();
-			}
-
-			LoggerManager.GetLogger().Trace("StartNotificationProcess() end");
-		}
-
 		#endregion
 
 		#region Helper Methods
@@ -1422,12 +1385,12 @@ Automatisch generierte Nachricht.",
 
 		public void NotifyLiftSave(string action, string definition, Event evnt, Contact contactToNotify, Contact liftContact)
 		{
-			StartNotificationProcess(NotificationOperation.LiftSaveNotification, GetArgumentString(action, definition, evnt.EventId, contactToNotify.ContactId, liftContact.ContactId));
+			NotificationStarter.StartLiftSaveNotification(Mandator.MandatorId, action, definition, evnt.EventId, contactToNotify.ContactId, liftContact.ContactId);
 		}
 
 		public void NofityJourneyChange(Subscription journeySubscription)
 		{
-			StartNotificationProcess(NotificationOperation.JourneyChangeNotification, journeySubscription.SubscriptionId.ToString());
+			NotificationStarter.StartJourneyChangeNotification(Mandator.MandatorId, journeySubscription.SubscriptionId);
 		}
 
 		public void LogSms(SmsNotifSubscription smsNotifSubscription, Type typeToBill)
@@ -1439,16 +1402,5 @@ Automatisch generierte Nachricht.",
 		{
 			EventSiteDA.LogSms(contact, typeToBill);
 		}
-	}
-
-	public enum NotificationOperation
-	{
-		AddEventNotification,
-		EditEventNotification,
-		AddSubscriptionNotification,
-		EditSubscriptionNotification,
-		DelSubscriptionNotification,
-		JourneyChangeNotification,
-		LiftSaveNotification
 	}
 }
