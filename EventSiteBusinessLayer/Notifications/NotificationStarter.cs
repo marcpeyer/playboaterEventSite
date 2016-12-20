@@ -8,37 +8,55 @@ namespace kcm.ch.EventSite.BusinessLayer.Notifications
 {
 	public static class NotificationStarter
 	{
-		public static void StartNotification()
+		public static void StartAddEventNotification(string mandatorId, int eventId)
 		{
 			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
-			//PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
 			BackgroundTaskManager.Run(() =>
 			{
-				LoggerManager.GetLogger().Trace("sleeping...");
-				Thread.Sleep(4000);
-				LoggerManager.GetLogger().Trace("slept 4s:");
-				Thread.Sleep(4000);
-				LoggerManager.GetLogger().Trace("slept 4s:");
+				try
+				{
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId.ToString());
+
+					notification.BeginAddEventNotification(eventId);
+				}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException("Error occured while executing async notification for AddEvent", ex);
+					//TODO: REMOVE THROW
+					throw;
+				}
 			});
 			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
-
 		}
+
+		public static void StartEditEventNotification(string mandatorId, int eventId)
+		{
+			LoggerManager.GetLogger().Trace("Calling async method to perform notifications");
+			BackgroundTaskManager.Run(() =>
+			{
+				try
+				{
+					LoggerManager.GetLogger().Trace("EventSite notifications started.");
+					Notification notification = new Notification(mandatorId.ToString());
+
+					notification.BeginEditEventNotification(eventId);
+				}
+				catch (Exception ex)
+				{
+					LoggerManager.GetLogger().ErrorException("Error occured while executing async notification for EditEvent", ex);
+					//TODO: REMOVE THROW
+					throw;
+				}
+			});
+			LoggerManager.GetLogger().Trace("Called async method to perform notifications");
+		}
+
 		static void Main(string mandatorId, NotificationOperation operation, int? eventId, int? subscrId, int? journeySubscrId,
 			string action, string definition, int? contactIdToNotify, int? liftContactId)
 		{
 			try
 			{
-				const int baseArgumentsLength = 2;
-
-				if (args.Length < baseArgumentsLength)
-				{
-					Console.WriteLine("invalid parameters given. (only " + args.Length + ", but at least " + baseArgumentsLength +
-					                  " are needed).");
-					if (args.Length > 0)
-						Console.WriteLine("1st parameter given is: " + args[0]);
-					return;
-				}
-
 				LoggerManager.GetLogger().Trace("EventSite notifications started.");
 				Notification notification = new Notification(mandatorId);
 

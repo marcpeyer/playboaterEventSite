@@ -701,7 +701,7 @@ Mandant: {2}
 
 			if (Mandator.OnNewEventNotifyContacts)
 			{
-				StartNotificationProcess(NotificationOperation.AddEventNotification, newEvent.EventId.ToString());
+				NotificationStarter.StartAddEventNotification(Mandator.MandatorId, newEvent.EventId);
 			}
 			return;
 		}
@@ -711,7 +711,7 @@ Mandant: {2}
 			EventSiteDA.EditEvent(editEvent);
 			if (notifyContacts && Mandator.OnEditEventNotifyContacts)
 			{
-				StartNotificationProcess(NotificationOperation.EditEventNotification, editEvent.EventId.ToString());
+				NotificationStarter.StartAddEventNotification(Mandator.MandatorId, editEvent.EventId);
 			}
 			return;
 		}
@@ -992,7 +992,7 @@ Mandant: {2}
 
 			LoggerManager.GetLogger().Trace("Starting notification process");
 
-			NotificationStarter.StartNotification();
+			//NotificationStarter.StartNotification();
 
 			LoggerManager.GetLogger().Trace("Ending notification process start method");
 
