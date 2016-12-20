@@ -1,18 +1,13 @@
-<%@ Page language="c#" Codebehind="Login.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Login" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title>EventSite - Login</title>
-		<meta name="GENERATOR" Content="Microsoft Visual Studio .NET 7.1">
-		<meta name="CODE_LANGUAGE" Content="C#">
-		<meta name="vs_defaultClientScript" content="JavaScript">
-		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
-	</HEAD>
-	<body>
-		<form id="Form1" name="Form1" method="post" runat="server">
-			<h1 id="pageTitle" runat="server">EventSite - Login</h1>
+<%@ Page Title="EventSite - Login" Language="C#" AutoEventWireup="false" MasterPageFile="~/SiteAnonym.Master" CodeBehind="Login.aspx.cs" Inherits="kcm.ch.EventSite.Web.Login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+		<!--<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
 			<table align="center" style="TABLE-LAYOUT: fixed; WIDTH: 400px">
+				<tr>
+					<td colspan="2">
+						<h2><asp:Label id="MandatorTitle" runat="server"></asp:Label></h2>
+						<div style="margin-bottom: 20px;"><a href="/">Mandant wechseln</a></div>
+					</td>
+				</tr>
 				<tr>
 					<td>Benutzername:</td>
 					<td>
@@ -35,19 +30,19 @@
 						keinen Account hast, kannst du dich
 						<asp:HyperLink id="RegisterLink" runat="server">hier</asp:HyperLink>&nbsp;neu 
 						registrieren. Falls du die Login-Daten vergessen hast: <a href="/admin/sendpass.asp">
-							hier klicken</a></td>
+							hier klicken</a>
+					</td>
 				</tr>
 			</table>
-		</form>
+			
 		<script language="javascript" type="text/javascript">
 			try
 			{
-				document.Form1.LoginBox.focus();
+				document.forms[0].MainContent_LoginBox.focus();
 			}
 			catch(e)
 			{
 				//alert(e);
 			}
 		</script>
-	</body>
-</HTML>
+</asp:Content>

@@ -948,6 +948,8 @@ Mandant: {2}
 		/// </summary>
 		private void StartNotificationProcess(NotificationOperation operation, string specialArgs)
 		{
+			//TODO: migrate!
+			return;
 			LoggerManager.GetLogger().Trace("StartNotificationProcess() begin");
 			
 			string baseArgs = GetNotificationBaseEventArgs();

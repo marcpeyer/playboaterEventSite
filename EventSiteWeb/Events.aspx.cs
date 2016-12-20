@@ -17,7 +17,6 @@ namespace kcm.ch.EventSite.Web
 		#region Declarations
 		protected Label lblEvent;
 		protected HtmlGenericControl pageTitle;
-		protected HtmlGenericControl title;
 		protected TextBox TitleTextBox;
 		protected DropDownList LocationDropDown;
 		protected TextBox DescriptionTextBox;
@@ -32,7 +31,6 @@ namespace kcm.ch.EventSite.Web
 		protected HyperLink LocationMgrLink;
 		protected Button LocationMgrButton;
 		protected AJAXDatePicker.AJAXDatePickerControl StartDate;
-		protected Navigation PageNavigation;
 		protected System.Web.UI.WebControls.RadioButtonList NotifyChange;
 		protected System.Web.UI.HtmlControls.HtmlGenericControl NotifyChangeArea;
 		protected System.Web.UI.WebControls.RequiredFieldValidator reqTitle;
@@ -301,7 +299,7 @@ namespace kcm.ch.EventSite.Web
 				ResetButton.Enabled = false;
 				SaveButton.Enabled = false;
 
-				titleAdd = "Kein " + BLL.Mandator.EventName + " ausgewählt";
+				titleAdd = ": Kein " + BLL.Mandator.EventName + " ausgewählt";
 
 				CopyEventButton.Visible = false;
 				NotifyChangeArea.Visible = false;
@@ -326,7 +324,7 @@ namespace kcm.ch.EventSite.Web
 				ResetButton.Enabled = true;
 				SaveButton.Enabled = true;
 
-				titleAdd = CurrentEvent.EventTitle;
+				titleAdd = ": " + CurrentEvent.EventTitle;
 
 				CopyEventButton.Visible = (CurrentEvent.EventId != -1);
 				NotifyChangeArea.Visible = (CurrentEvent.EventId != -1) && (BLL.Mandator.OnNewEventNotifyContacts
@@ -337,8 +335,8 @@ namespace kcm.ch.EventSite.Web
 				SaveButton.Text = (CurrentEvent.EventId == -1 ? "Neuer Anlass speichern" : "Änderungen speichern");
 			}
 
-			title.InnerText = BLL.Mandator.SiteTitle;
-			pageTitle.InnerText = "Anlass: " + titleAdd;
+			Page.Title = $"{BLL.Mandator.EventName}{titleAdd} - {BLL.Mandator.SiteTitle}";
+			pageTitle.InnerText = BLL.Mandator.EventName + titleAdd;
 			CopyEventInactive.Visible = !CopyEventButton.Visible;
 
 			EventCategoryRow.Visible = BLL.Mandator.UseEventCategories;

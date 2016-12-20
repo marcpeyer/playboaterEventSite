@@ -223,7 +223,6 @@
     <Content Include="MaintenanceMode.aspx" />
     <Content Include="modules\AJAXDatePickerControl.ascx" />
     <Content Include="modules\ContactControl.ascx" />
-    <Content Include="modules\Navigation.ascx" />
     <Content Include="modules\PopupControl.ascx" />
     <Content Include="MyDetails.aspx" />
     <Content Include="pages\BrowserCheck.js" />
@@ -274,7 +273,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Site.Mobile.Master" />
+    <Content Include="SiteAnonym.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -350,10 +349,6 @@
     <Compile Include="modules\DragableControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="modules\Navigation.ascx.cs">
-      <DependentUpon>Navigation.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="modules\PopupControl.ascx.cs">
       <DependentUpon>PopupControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -378,19 +373,19 @@
       <DependentUpon>SendPass.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="SiteAnonym.Master.cs">
+      <DependentUpon>SiteAnonym.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SiteAnonym.Master.designer.cs">
+      <DependentUpon>SiteAnonym.Master</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site.Mobile.Master.designer.cs">
-      <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="UnsubscribeMailingList.aspx.cs">
       <DependentUpon>UnsubscribeMailingList.aspx</DependentUpon>
@@ -462,9 +457,6 @@
     <EmbeddedResource Include="modules\ContactControl.ascx.resx">
       <DependentUpon>ContactControl.ascx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="modules\Navigation.ascx.resx">
-      <DependentUpon>Navigation.ascx.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="modules\PopupControl.ascx.resx">
       <DependentUpon>PopupControl.ascx.cs</DependentUpon>
     </EmbeddedResource>
@@ -499,7 +491,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>38629</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:4362/</IISUrl>
+          <IISUrl>http://localhost:4363/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -10,7 +10,7 @@ using Microsoft.AspNet.Identity;
 
 namespace kcm.ch.EventSite.Web
 {
-    public partial class SiteMaster : MasterPage
+    public partial class SiteAnonymMaster : MasterPage
     {
         private const string AntiXsrfTokenKey = "__AntiXsrfToken";
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
@@ -65,21 +65,6 @@ namespace kcm.ch.EventSite.Web
                     throw new InvalidOperationException("Validation of Anti-XSRF token failed.");
                 }
             }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-	        string script = $"var querystring = 'mid={Request.QueryString["mid"]}';" + @"
-		$('a').each(function() {
-    var href = $(this).attr('href');
-
-    if (href && href.length > 0 && href.substr(0, 1) != '#' && href.substr(0, 4).toLowerCase() != 'java'
-				&& href.substr(0, 4).toLowerCase() != 'mail') {
-        href += (href.match(/\?/) ? '&' : '?') + querystring;
-        $(this).attr('href', href);
-    }
-});";
-					Page.ClientScript.RegisterStartupScript(this.GetType(), "midInserter", script, true);
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

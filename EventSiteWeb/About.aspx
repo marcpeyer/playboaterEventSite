@@ -1,12 +1,9 @@
 <%@ Page Title="Über" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="About.aspx.cs" Inherits="kcm.ch.EventSite.Web.About" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 <!--		<title runat="server" id="title">About</title>
 		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
-			<es:Navigation runat="server" id="PageNavigation"></es:Navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
-			<table width="400">
+			<table id="appInfoTable">
 				<tr>
 					<td>Titel dieser Webapplikation:</td>
 					<td>Event Site</td>
@@ -55,6 +52,14 @@
 				<li>Optionaler Konfigurationsparameter für die Custom Authentication für eine IsDeleted Spalte einführen</li>
 				<li>Berücksichtigung der Parameter "Min. Anzahl Anmeldungen" und "Max. Anzahl Anmeldungen"<!-- ACHTUNG: nur Subscriptions mit IsDeletable = 0 zählen! --></li>
 				<li>Evtl: beim Erstellen von Anl&auml;ssen soll im KCM Homepage Kalender ein neuer Eintrag erstellt werden</li>
+			</ul>
+			<h3>Version 5.0.vnext:</h3>
+			<ul>
+				<li>Upgrade auf .NET Framework 4.6.1</li>
+				<li>Startseite zur Mandantenwahl eingebaut</li>
+				<li>Konsolidierung und Zusammenführung aller Mandanten</li>
+				<li>Migration nach EventSite.ch</li>
+				<li>Redesign mit Master Pages</li>
 			</ul>
 			<h3>Version 4.1.4464:</h3>
 			<ul>

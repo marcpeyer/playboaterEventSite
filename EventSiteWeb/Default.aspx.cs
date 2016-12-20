@@ -47,7 +47,6 @@ namespace kcm.ch.EventSite.Web
 		protected TextBox subscriptionTime;
 		protected CheckBox chkNotifyByEmail;
 		protected HtmlGenericControl pageTitle;
-		protected HtmlGenericControl title;
 		protected Panel pnlAddSubscription;
 		protected Label lblAddSubscriptionEmail;
 		protected RadioButtonList subscriptionStates;
@@ -59,7 +58,6 @@ namespace kcm.ch.EventSite.Web
 		protected HtmlGenericControl notifSubscription;
 		protected Button AddSubscription;
 		protected Button AddContact;
-		protected Navigation PageNavigation;
 		protected HtmlGenericControl legendDiv;
 		protected HtmlTableCell AddSubscriptionCell;
 		protected HtmlGenericControl subscriptionMailContainer;
@@ -439,7 +437,6 @@ namespace kcm.ch.EventSite.Web
 			}
 			#endregion
 
-
 			EventCategories.Attributes.Add("onchange", String.Format("document.getElementById('{0}').checked = false;document.getElementById('{0}').click();", chkCategoryFilterOn.ClientID));
 			EventCategoryFilterPopup.PopupText = IsCategoryFilterOn ? "Filter deaktivieren" : "Nach Kategorie filtern";
 			EventCategoryFilterPopup.PopupIconSrc = IsCategoryFilterOn ? "images\\icons\\filter_on.gif" : "images\\icons\\filter_off.gif";
@@ -576,7 +573,7 @@ namespace kcm.ch.EventSite.Web
 				dgrSubscriptions.Visible = true;
 				legendDiv.Visible = BLL.Mandator.IsLiftManagementEnabled;
 			}
-			title.InnerText = BLL.Mandator.SiteTitle + " - " + titleAdd;
+			Page.Title = BLL.Mandator.SiteTitle + " - " + titleAdd;
 			pageTitle.InnerText = BLL.Mandator.SiteTitle + " - " + titleAdd;
 			helptext.Text = BLL.Mandator.HelpText;
 

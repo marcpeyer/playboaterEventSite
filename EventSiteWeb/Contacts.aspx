@@ -1,21 +1,7 @@
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
+<%@ Page Title="Kontakt-Administration" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Contacts.aspx.cs" Inherits="kcm.ch.EventSite.Web.Contacts" %>
 <%@ Register TagPrefix="es" TagName="ContactControl" Src="modules/ContactControl.ascx" %>
-<%@ Page language="c#" Codebehind="Contacts.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Contacts" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title runat="server" id="title">Kontakt-Administration</title>
-		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
-		<meta content="C#" name="CODE_LANGUAGE">
-		<meta content="JavaScript" name="vs_defaultClientScript">
-		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
-	</HEAD>
-	<body>
-		<form id="Form1" method="post" runat="server">
-			<es:Navigation runat="server" id="PageNavigation"></es:Navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo - Kontakt-Administration</h1>
 			<asp:datagrid id="dgrContacts" runat="server" AutoGenerateColumns="False" Width="750px" BorderColor="#999999"
 				BorderStyle="None" BorderWidth="1px" BackColor="White" CellPadding="3" GridLines="Vertical"
@@ -119,6 +105,4 @@
 			<div style="FONT-SIZE: 12px" id="SmsCreditDesc" runat="server">- SMS Kredit: Gibt an, wieviele SMS Nachrichten der Benutzer noch empfangen kann bevor sein Kredit aufgebraucht ist.</div>
 			<asp:Button id="LogoutButton" style="DISPLAY: none" runat="server" Text="logout"></asp:Button>
 			<asp:button id="DeleteContact" style="DISPLAY: none" runat="server" Text="delete"></asp:button><INPUT id="hdnDeleteConfiremd" type="hidden" value="false" runat="server">
-		</form>
-	</body>
-</HTML>
+</asp:Content>

@@ -1,16 +1,7 @@
-<%@ Page language="c#" Codebehind="Default.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Default" %>
+<%@ Page Title="Über" Language="C#" AutoEventWireup="false" MasterPageFile="~/Site.Master" CodeBehind="Default.aspx.cs" Inherits="kcm.ch.EventSite.Web.Default" %>
 <%@ Register TagPrefix="es" TagName="ContactControl" Src="modules/ContactControl.ascx" %>
 <%@ Register TagPrefix="es" TagName="PopupControl" Src="modules/PopupControl.ascx" %>
-<%@ Register TagPrefix="es" TagName="Navigation" Src="modules/Navigation.ascx" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title runat="server" id="title">Event-Site des SoUndSo</title>
-		<meta content="Microsoft Visual Studio .NET 7.1" name="GENERATOR">
-		<meta content="C#" name="CODE_LANGUAGE">
-		<meta content="JavaScript" name="vs_defaultClientScript">
-		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 		<script language="javascript" src="pages/BrowserCheck.js" type="text/javascript"></script>
 		<script language="javascript" src="pages/EventSiteCommons.js" type="text/javascript"></script>
 		<script language="javascript" type="text/javascript">
@@ -133,7 +124,7 @@
 		
 			HidePopups();
 			
-			document.getElementById('refreshEventButton').click();
+			document.getElementById('MainContent_refreshEventButton').click();
 		}
 		
 		function resetPopupVisible()
@@ -141,31 +132,7 @@
 			popupVisible = false;
 		}
 		
-		function fOnSubmit()
-		{
-			//alert('onsubmit');
-			document.body.style.cursor = 'wait';
-			try
-			{
-				document.getElementById('AddSubscription').style.cursor = 'wait';
-				window.setTimeout('document.getElementById(\'AddSubscription\').disabled = true', 100);
-			}
-			catch(e)
-			{}
-			try
-			{
-				document.getElementById('AddContact').style.cursor = 'wait';
-				window.setTimeout('document.getElementById(\'AddContact\').disabled = true', 100);
-			}
-			catch(e)
-			{}
-		}
 		</script>
-	</HEAD>
-	<body onclick="window.setTimeout('HidePopups()', 15);">
-		<form id="Form1" onsubmit="fOnSubmit();" method="post" runat="server">
-			<es:Navigation id="PageNavigation" runat="server"></es:Navigation>
-			<hr>
 			<h1 id="pageTitle" runat="server">Event-Site des SoUndSo</h1>
 			<div id="pnlEventContainer" style="BORDER-RIGHT: blue 0px solid; BORDER-TOP: blue 0px solid; MARGIN-BOTTOM: 10px; BORDER-LEFT: blue 0px solid; BORDER-BOTTOM: blue 0px solid">
 				<asp:panel id="pnlEvent" style="BORDER-RIGHT: red 0px solid; BORDER-TOP: red 0px solid; FLOAT: left; MARGIN-BOTTOM: auto; BORDER-LEFT: red 0px solid; MARGIN-RIGHT: 5px; BORDER-BOTTOM: red 0px solid"
@@ -439,8 +406,8 @@
 				function fResetEventDetailSize()
 				{
 					var container = document.getElementById('pnlEventContainer');
-					var source = document.getElementById('pnlEvent');
-					var target = document.getElementById('pnlEventDetails');
+					var source = document.getElementById('MainContent_pnlEvent');
+					var target = document.getElementById('MainContent_pnlEventDetails');
 					target.style.width = (document.body.clientWidth - source.clientWidth - 35) + 'px';
 					container.style.width = (document.body.clientWidth - 20) + 'px';
 					//alert('reseted');
@@ -450,8 +417,8 @@
 				function fSetEventDetailSize()
 				{
 					var container = document.getElementById('pnlEventContainer');
-					var target = document.getElementById('pnlEventDetails');
-					var source = document.getElementById('pnlEvent');
+					var target = document.getElementById('MainContent_pnlEventDetails');
+					var source = document.getElementById('MainContent_pnlEvent');
 					
 					var gap;
 
@@ -491,8 +458,25 @@
 					catch(e)
 					{};
 				}
+
+				document.body.onclick = function () { window.setTimeout('HidePopups()', 15); };
+
+				window.theForm.onsubmit = function () {
+					//alert('onsubmit');
+					document.body.style.cursor = 'wait';
+					try {
+						document.getElementById('MainContent_AddSubscription').style.cursor = 'wait';
+						window.setTimeout('document.getElementById(\'AddSubscription\').disabled = true', 100);
+					}
+					catch (e)
+					{ }
+					try {
+						document.getElementById('MainContent_AddContact').style.cursor = 'wait';
+						window.setTimeout('document.getElementById(\'AddContact\').disabled = true', 100);
+					}
+					catch (e)
+					{ }
+				}
 //-->
 			</script>
-		</form>
-	</body>
-</HTML>
+</asp:Content>

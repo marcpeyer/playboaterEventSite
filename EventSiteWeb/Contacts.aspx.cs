@@ -20,8 +20,6 @@ namespace kcm.ch.EventSite.Web
 		protected HtmlInputHidden hdnDeleteConfiremd;
 		protected Button DeleteContact;
 		protected HtmlGenericControl pageTitle;
-		protected HtmlGenericControl title;
-		protected Navigation PageNavigation;
 		protected System.Web.UI.WebControls.Button LogoutButton;
 		protected HtmlGenericControl NameDesc;
 		protected HtmlGenericControl MailDesc;
@@ -193,7 +191,7 @@ namespace kcm.ch.EventSite.Web
 			dgrContacts.DataSource = BLL.ListContacts();
 			dgrContacts.DataBind();
 
-			title.InnerText = BLL.Mandator.SiteTitle + " - " + "Kontakt-Administration";
+			Page.Title = BLL.Mandator.SiteTitle + " - " + "Kontakt-Administration";
 			pageTitle.InnerText = BLL.Mandator.SiteTitle + " - " + "Kontakt-Administration";
 
 			dgrContacts.ShowFooter = BLL.IsManager() || BLL.IsAdministrator();

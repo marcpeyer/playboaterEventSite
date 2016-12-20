@@ -1,16 +1,6 @@
-<%@ Page language="c#" Codebehind="Register.aspx.cs" AutoEventWireup="false" Inherits="kcm.ch.EventSite.Web.Register" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
-<HTML>
-	<HEAD>
-		<title>EventSite - Registrieren</title>
-		<meta name="GENERATOR" Content="Microsoft Visual Studio .NET 7.1">
-		<meta name="CODE_LANGUAGE" Content="C#">
-		<meta name="vs_defaultClientScript" content="JavaScript">
-		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
-		<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">
-	</HEAD>
-	<body>
-		<form id="Form1" method="post" runat="server">
+<%@ Page Title="EventSite - Registrieren" Language="C#" AutoEventWireup="false" MasterPageFile="~/SiteAnonym.Master" CodeBehind="Register.aspx.cs" Inherits="kcm.ch.EventSite.Web.Register" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+		<!--<LINK href="pages/EventSite.css" type="text/css" rel="styleSheet">-->
 			<h1 id="pageTitle" runat="server">EventSite - Registrieren</h1>
 			<table align="center" style="TABLE-LAYOUT: fixed; WIDTH: 900px">
 				<tr>
@@ -58,6 +48,4 @@
 						<asp:HyperLink id="LoginLink" runat="server">Hier gehts zurück zum Login</asp:HyperLink></td>
 				</tr>
 			</table>
-		</form>
-	</body>
-</HTML>
+</asp:Content>

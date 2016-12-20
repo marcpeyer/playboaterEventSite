@@ -17,7 +17,7 @@
 			{
 				try
 				{
-					opener.document.getElementById('LocationMgrButton').click();
+					opener.document.getElementById('MainContent_LocationMgrButton').click();
 				}
 				catch(ex)
 				{
