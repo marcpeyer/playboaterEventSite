@@ -963,11 +963,20 @@ Mandant: {2}
 		}
 		private async Task PerformNotificationAsync(NotificationOperation operation, string specialArgs)
 		{
-			//var response = await SendEmail("marc@kcm.ch", "test mail", "my body");
-			
 			Logger logger = LoggerManager.GetLogger();
-			logger.Trace("async response:");
+			logger.Trace("Starting async method PerformNotificationAsync");
+			//var response = await SendEmail("marc@kcm.ch", "test mail", "my body");
+			await Task.Run(() =>
+			{
+				LoggerManager.GetLogger().Trace("sleeping...");
+				Thread.Sleep(4000);
+				LoggerManager.GetLogger().Trace("slept 4s:");
+				Thread.Sleep(4000);
+				LoggerManager.GetLogger().Trace("slept 4s:");
+			});
+			LoggerManager.GetLogger().Trace("async response:");
 			//logger.Trace(response);
+			LoggerManager.GetLogger().Trace("Ending async method PerformNotificationAsync");
 		}
 
 		/// <summary>
@@ -977,8 +986,10 @@ Mandant: {2}
 		{
 			//TODO: migrate!
 
-			PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
-			LoggerManager.GetLogger().Trace("here");
+			LoggerManager.GetLogger().Trace("Calling async method PerformNotificationAsync()");
+			//PerformNotificationAsync(NotificationOperation.AddEventNotification, "test");
+			//NotificationStarter
+			LoggerManager.GetLogger().Trace("Called async method PerformNotificationAsync()");
 
 
 			return;
