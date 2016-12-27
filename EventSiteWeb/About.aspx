@@ -42,7 +42,6 @@
 				<li>Die Anlass SMS mit Kommentaren werden als 2 SMS verrechnet (wahrsch. 1-2 Zeichen zu lang)</li>
 				<li>Das Logging der Two-Way SMS ist falsch</li>
 				<li>Im SMS Popup auf der Kontakt Seite können keine Zeilenumbrüche eingegeben werden</li>
-				<li>Breite des Mitfahr-Kontext-Menus in gewissen Versionen von Mozilla / Firefox: Wenn das Fenster in der Breite verkleinert wird, wird das Kontext-Menu auch verkleinert</li>
 				<!--<span style="color: black;">keine Bekannt</span>-->
 			</ul>
 			<h2>Version History:</h2>
@@ -53,13 +52,13 @@
 				<li>Berücksichtigung der Parameter "Min. Anzahl Anmeldungen" und "Max. Anzahl Anmeldungen"<!-- ACHTUNG: nur Subscriptions mit IsDeletable = 0 zählen! --></li>
 				<li>Evtl: beim Erstellen von Anl&auml;ssen soll im KCM Homepage Kalender ein neuer Eintrag erstellt werden</li>
 			</ul>
-			<h3>Version 5.0.vnext:</h3>
+			<h3>Version 5.0.6206:</h3>
 			<ul>
 				<li>Upgrade auf .NET Framework 4.6.1</li>
 				<li>Startseite zur Mandantenwahl eingebaut</li>
 				<li>Konsolidierung und Zusammenführung aller Mandanten</li>
 				<li>Migration nach EventSite.ch</li>
-				<li>Redesign mit Master Pages</li>
+				<li>Redesign mit Master Pages inkl. Burger-Menu für mobile Devices</li>
 			</ul>
 			<h3>Version 4.1.4464:</h3>
 			<ul>
