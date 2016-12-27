@@ -23,7 +23,7 @@ namespace kcm.ch.EventSite.Web
 
     protected void Application_BeginRequest(Object sender, EventArgs e)
     {
-      if (Path.GetFileName(Request.Url.LocalPath) != "MaintenanceMode.aspx"
+      if (Path.GetFileName(Request.Url.LocalPath).IndexOf("MaintenanceMode", StringComparison.CurrentCultureIgnoreCase) == -1
         && EventSiteConfiguration.Current.MaintenanceMode)
       {
         Response.Redirect(String.Format("MaintenanceMode.aspx?{0}&tit=Wartungsmodus&txt=Die Event Site befindet sich momentan im Wartungsmodus. Bitte in ein paar Minuten erneut versuchen.", Request.Url.Query).Replace("??", "?"), true);
