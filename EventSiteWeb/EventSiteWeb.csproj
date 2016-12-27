@@ -183,7 +183,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="images\icons\Icons.psd" />
-    <None Include="Properties\PublishProfiles\hostfactory.pubxml" />
+    <None Include="Properties\PublishProfiles\hostfactory int.pubxml" />
+    <None Include="Properties\PublishProfiles\hostfactory prod.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="images\datepicker\cal_background.jpg" />
     <Content Include="images\datepicker\close_button.gif" />
