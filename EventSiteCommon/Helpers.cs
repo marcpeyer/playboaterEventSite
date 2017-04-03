@@ -27,6 +27,7 @@ namespace kcm.ch.EventSite.Common
 			sb.Append("Server: " + HttpContext.Current.Server.MachineName + "\n");
 			sb.Append("Current User: " + HttpContext.Current.User.Identity.Name + "\n");
 			sb.Append("Request Url:  " + HttpContext.Current.Request.RawUrl + "\n");
+			sb.AppendFormat("Request Ip:  {0} - http://ipinfo.io/{0}\n", GetIp());
 			sb.Append("Form variables:\n");
 			foreach (string key in HttpContext.Current.Request.Form) 
 			{
@@ -42,6 +43,18 @@ namespace kcm.ch.EventSite.Common
 			sb.Append("\n");
 			sb.Append(ex.ToString());
 			return sb.ToString();
+		}
+
+		public static string GetIp()
+		{
+			string ip = HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+			if (String.IsNullOrEmpty(ip))
+			{
+				ip = HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+			}
+
+			return ip;
 		}
 
 		public static bool TrySendErrorMail(Exception ex)

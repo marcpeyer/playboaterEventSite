@@ -29,7 +29,7 @@ namespace kcm.ch.EventSite.Web
 			mandatorSmsCredit = (BLL.Mandator.SmsPurchased - BLL.Mandator.SmsLog).ToString();
 			MandatorSmsCreditRow.Visible = BLL.Mandator.SmsNotifications;
 
-			// version
+			// version of web assembly
 			Assembly assembly = Assembly.GetExecutingAssembly();
 			Version assemblyVersion = assembly.GetName().Version;
 			version = String.Format("{0}.{1}.{2}", assemblyVersion.Major, assemblyVersion.Minor, assemblyVersion.Build);

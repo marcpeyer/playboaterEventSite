@@ -52,6 +52,10 @@
 				<li>Berücksichtigung der Parameter "Min. Anzahl Anmeldungen" und "Max. Anzahl Anmeldungen"<!-- ACHTUNG: nur Subscriptions mit IsDeletable = 0 zählen! --></li>
 				<li>Evtl: beim Erstellen von Anl&auml;ssen soll im KCM Homepage Kalender ein neuer Eintrag erstellt werden</li>
 			</ul>
+			<h3>Version 5.0.6302:</h3>
+			<ul>
+				<li>Fehlerbenachrichtigungen enthalten nun Quell IP Adresse</li>
+			</ul>
 			<h3>Version 5.0.6206:</h3>
 			<ul>
 				<li>Upgrade auf .NET Framework 4.6.1</li>
